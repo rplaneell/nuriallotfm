@@ -1,0 +1,66 @@
+{
+  "eu-pact-implementation": {
+    "literature": ["implementation of the EU Pact on Migration and Asylum member states", "Common European Asylum System implementation gap member states", "Dublin system solidarity responsibility sharing"],
+    "precedents": ["asylum policy European Union", "Common European Asylum System", "Dublin regulation", "asylum reception member states"]
+  },
+  "municipal-integration-catalonia": {
+    "literature": ["local integration policy municipalities variation immigrant", "local turn migration policy municipalities", "interculturalism local policy Spain Catalonia"],
+    "precedents": ["local integration policy municipalities", "immigrant integration Catalonia", "interculturalism local government", "municipal migration policy"]
+  },
+  "padron-access-rights": {
+    "literature": ["administrative burden access to public services immigrants", "irregular migrants access to healthcare Spain", "municipal registration empadronamiento migrants access to services"],
+    "precedents": ["irregular migrants access to healthcare", "administrative barriers immigrants public services", "access to rights undocumented migrants", "municipal registration migrants"]
+  },
+  "regularisation-effects": {
+    "literature": ["regularisation of irregular migrants Spain effects", "regularization programmes Europe outcomes", "arraigo residence permit Spain irregular migration"],
+    "precedents": ["regularisation irregular migrants Spain", "immigration policy Spain residence permits", "undocumented migrants policy"]
+  },
+  "evaluating-integration-programmes": {
+    "literature": ["evaluation of integration programmes for immigrants", "policy evaluation immigrant integration causal effects", "monitoring and evaluation migrant integration policy evidence"],
+    "precedents": ["evaluation integration programmes immigrants", "policy evaluation migration", "integration courses effectiveness refugees"]
+  },
+  "reception-system-governance": {
+    "literature": ["governance of reception of asylum seekers coordination levels of government", "asylum reception system capacity multilevel governance", "refugee reception local authorities dispersal policy"],
+    "precedents": ["asylum reception system governance", "refugee reception local authorities", "dispersal policy asylum seekers", "reception conditions asylum"]
+  },
+  "temporary-protection-comparison": {
+    "literature": ["Temporary Protection Directive Ukraine implementation member states", "differential treatment Ukrainian refugees other refugees Europe", "temporary protection Ukrainians Spain reception"],
+    "precedents": ["Ukrainian refugees temporary protection", "temporary protection directive", "differential treatment refugees Europe Ukraine"]
+  },
+  "externalisation-mediterranean": {
+    "literature": ["externalisation of EU migration control cooperation third countries Morocco", "EU migration partnerships third countries conditionality", "Mediterranean migration governance externalisation Spain Morocco"],
+    "precedents": ["externalisation of border control", "EU Morocco migration cooperation", "Mediterranean migration policy EU", "EU-Turkey statement"]
+  },
+  "discourse-and-policy": {
+    "literature": ["public opinion immigration policy responsiveness", "radical right immigration policy outcomes mainstream parties", "party discourse immigration Spain Catalonia Vox"],
+    "precedents": ["political discourse immigration", "public opinion immigration policy", "radical right immigration parties", "media framing migration"]
+  },
+  "bureaucratic-discretion-appointments": {
+    "literature": ["street-level bureaucracy immigration discretion", "bureaucratic discretion asylum decisions unequal outcomes", "administrative burden appointment system immigration offices"],
+    "precedents": ["street-level bureaucracy immigration", "bureaucratic discretion migration", "administrative burden migrants", "asylum decision-making"]
+  },
+  "labour-migration-pathways": {
+    "literature": ["labour migration policy Spain seasonal agricultural workers", "labour market integration immigrants regularisation employment Spain", "circular migration programmes evaluation hiring in origin"],
+    "precedents": ["labour migration policy", "seasonal agricultural workers migrants", "labour market integration immigrants", "circular migration"]
+  },
+  "gender-domestic-work": {
+    "literature": ["migrant domestic workers policy reform Spain ILO convention 189", "gender intersectionality migration policy", "care work migration regime welfare state"],
+    "precedents": ["migrant domestic workers", "gender and migration policy", "intersectionality migrant women", "care work migration"]
+  },
+  "climate-mobility-governance": {
+    "literature": ["climate-related mobility governance policy frameworks", "climate migration protection gaps legal frameworks", "environmental displacement policy European Union"],
+    "precedents": ["climate migration governance", "environmental displacement policy", "climate change human mobility policy"]
+  },
+  "unaccompanied-minors-distribution": {
+    "literature": ["unaccompanied minors reception policy Spain regions", "unaccompanied migrant children protection system governance Europe", "territorial solidarity distribution of asylum seekers and minors"],
+    "precedents": ["unaccompanied minors Spain", "unaccompanied migrant children protection", "child protection migration policy"]
+  },
+  "multilevel-competences-catalonia": {
+    "literature": ["multilevel governance of immigration subnational competences", "regional immigration policy autonomy Catalonia Quebec", "subnational migration policy devolution immigration powers"],
+    "precedents": ["multilevel governance migration", "regional immigration policy competences", "subnational migration policy", "Catalonia immigration competences"]
+  },
+  "geospatial-service-access": {
+    "literature": ["spatial analysis immigrant integration neighbourhood segregation Barcelona", "geospatial access to public services immigrants open data", "residential segregation immigrants Spanish cities"],
+    "precedents": ["spatial segregation immigrants Barcelona", "neighbourhood diversity immigrants", "geospatial analysis migration", "residential segregation migrants"]
+  }
+}

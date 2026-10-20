@@ -1,0 +1,28 @@
+import { chromium } from 'playwright-core';
+import { pathToFileURL } from 'node:url';
+const url = pathToFileURL('dist-share/index.html').href;
+const b = await chromium.launch({ executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe', headless: true });
+const p = await b.newPage({ viewport: { width: 1280, height: 900 } });
+const errs = []; p.on('console', m => { if (m.type()==='error' && !/tile\.openstreetmap|ERR_|Failed to load resource/.test(m.text())) errs.push(m.text().slice(0,200)); }); p.on('pageerror', e => errs.push('PAGEERR '+e.message));
+const ok = (n, v) => console.log((v?'PASS ':'FAIL ')+n);
+await p.goto(url); await p.waitForSelector('main h1');
+ok('home loads from file://', /thesis you can finish/i.test(await p.locator('h1').first().innerText()));
+await p.goto(url+'#/topics'); await p.waitForSelector('article');
+ok('topics render (16)', (await p.locator('article').count())===16);
+await p.locator('article h2 a').first().click(); await p.getByRole('tab',{name:'Past theses'}).click();
+ok('past theses show', await p.getByText('Repository record').first().isVisible());
+ok('live search hidden, manual links shown', (await p.getByText('Search the repositories live').count())===0 && await p.getByText('Manual search links').isVisible());
+await p.getByRole('tab',{name:/refine/i}).click();
+ok('AI panel hidden without backend', (await p.getByText(/Optional AI brainstorming/).count())===0);
+await p.getByRole('radio',{name:'Narrow'}).click(); ok('lab works', await p.getByText(/one dimension/).first().isVisible());
+await p.goto(url+'#/sources'); await p.waitForSelector('main h1');
+ok('no Recheck buttons without backend', (await p.getByRole('button',{name:'Recheck'}).count())===0);
+await p.goto(url+'#/map'); await p.waitForSelector('.leaflet-container');
+ok('map renders', await p.locator('.leaflet-container').isVisible());
+await p.goto(url+'#/test'); await p.waitForSelector('#q-prompt'); await p.locator('input[type=checkbox]').first().check();
+await p.reload(); await p.waitForSelector('#q-prompt');
+ok('answers persist after reload (file://)', await p.locator('input[type=checkbox]:checked').count()>0);
+ok('no console errors', errs.length===0); if(errs.length) console.log(errs);
+await p.goto(url+'#/'); await p.screenshot({path:'e2e-output/share-home.png'});
+await b.close();
+

@@ -1,0 +1,290 @@
+{
+ "checkedAt": "2026-10-19",
+ "results": {
+  "https://ec.europa.eu/eurostat/web/migration-asylum": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://ec.europa.eu/eurostat/web/migration-asylum"
+  },
+  "https://ec.europa.eu/eurostat/data/database": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://ec.europa.eu/eurostat/data/database"
+  },
+  "https://euaa.europa.eu/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.euaa.europa.eu/"
+  },
+  "https://eur-lex.europa.eu/": {
+   "status": 202,
+   "ok": true,
+   "finalUrl": "https://eur-lex.europa.eu/"
+  },
+  "https://home-affairs.ec.europa.eu/policies/migration-and-asylum/pact-migration-and-asylum_en": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://home-affairs.ec.europa.eu/policies/migration-and-asylum/pact-migration-and-asylum_en"
+  },
+  "https://home-affairs.ec.europa.eu/networks/european-migration-network-emn_en": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://home-affairs.ec.europa.eu/networks/european-migration-network-emn_en"
+  },
+  "https://migrant-integration.ec.europa.eu/": {
+   "status": 429,
+   "ok": false,
+   "finalUrl": "https://home-affairs.ec.europa.eu/policies/migration-and-asylum/migrant-integration/migrant-integration-hub_en"
+  },
+  "https://fra.europa.eu/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://fra.europa.eu/en"
+  },
+  "https://www.frontex.europa.eu/what-we-do/monitoring-and-risk-analysis/migratory-map/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.frontex.europa.eu/what-we-do/monitoring-and-risk-analysis/migratory-map/"
+  },
+  "https://www.oecd.org/en/topics/migration.html": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.oecd.org/en/topics/migration.html"
+  },
+  "https://www.iom.int/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.iom.int/"
+  },
+  "https://gmdac.iom.int/": {
+   "status": 503,
+   "ok": false,
+   "finalUrl": "https://gmdac.iom.int/"
+  },
+  "https://missingmigrants.iom.int/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://missingmigrants.iom.int/"
+  },
+  "https://www.unhcr.org/refugee-statistics/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.unhcr.org/refugee-statistics"
+  },
+  "https://data.unhcr.org/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://data.unhcr.org/"
+  },
+  "https://www.internal-displacement.org/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.internal-displacement.org/"
+  },
+  "https://www.mipex.eu/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.mipex.eu/"
+  },
+  "https://www.migrationpolicy.org/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.migrationpolicy.org/"
+  },
+  "https://www.cidob.org/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.cidob.org/"
+  },
+  "https://www.realinstitutoelcano.org/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.realinstitutoelcano.org/"
+  },
+  "https://www.ine.es/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.ine.es/"
+  },
+  "https://www.inclusion.gob.es/web/opi/": {
+   "status": 403,
+   "ok": false,
+   "finalUrl": "https://www.inclusion.gob.es/web/opi/"
+  },
+  "https://www.seg-social.es/wps/portal/wss/internet/EstadisticasPresupuestosEstudios/Estadisticas": {
+   "status": 206,
+   "ok": true,
+   "finalUrl": "https://www.seg-social.es/wps/portal/wss/internet/EstadisticasPresupuestosEstudios/Estadisticas"
+  },
+  "https://www.interior.gob.es/opencms/es/servicios-al-ciudadano/estadisticas/": {
+   "status": 403,
+   "ok": false,
+   "finalUrl": "https://www.interior.gob.es/opencms/es/servicios-al-ciudadano/estadisticas/"
+  },
+  "https://www.boe.es/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.boe.es/"
+  },
+  "https://www.defensordelpueblo.es/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.defensordelpueblo.es/"
+  },
+  "https://www.idescat.cat/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.idescat.cat/"
+  },
+  "https://analisi.transparenciacatalunya.cat/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://analisi.transparenciacatalunya.cat/"
+  },
+  "https://dogc.gencat.cat/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://dogc.gencat.cat/ca/inici"
+  },
+  "https://www.sindic.cat/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.sindic.cat/ca/page.asp?id=1"
+  },
+  "https://opendata-ajuntament.barcelona.cat/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://opendata-ajuntament.barcelona.cat/"
+  },
+  "https://portaldades.ajuntament.barcelona.cat/ca/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://portaldades.ajuntament.barcelona.cat/ca/"
+  },
+  "https://www.cis.es/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.cis.es/es/"
+  },
+  "https://www.europeansocialsurvey.org/data": {
+   "status": null,
+   "ok": false,
+   "error": "UND_ERR_SOCKET"
+  },
+  "https://europa.eu/eurobarometer": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://europa.eu/eurobarometer/"
+  },
+  "https://manifesto-project.wzb.eu/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://manifesto-project.wzb.eu/"
+  },
+  "https://normlex.ilo.org/": {
+   "status": null,
+   "ok": false,
+   "error": "The operation was aborted due to timeout"
+  },
+  "https://openalex.org/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://openalex.org/"
+  },
+  "https://www.crossref.org/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.crossref.org/"
+  },
+  "https://repositori.upf.edu/home": {
+   "status": null,
+   "ok": false,
+   "error": "UND_ERR_SOCKET"
+  },
+  "https://www.diva-portal.org/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.diva-portal.org/smash/"
+  },
+  "https://studenttheses.uu.nl/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://studenttheses.uu.nl/"
+  },
+  "https://www.upf.edu/web/master-governance/academic-information": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.upf.edu/web/master-governance/academic-information"
+  },
+  "https://www.upf.edu/web/master-governance/master-thesis": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.upf.edu/web/master-governance/master-thesis"
+  },
+  "https://eu-careers.europa.eu/en": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://eu-careers.europa.eu/index_en"
+  },
+  "https://web.gencat.cat/ca/generalitat/treballar-generalitat": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://web.gencat.cat/ca/generalitat/treballar-generalitat"
+  },
+  "https://administracion.gob.es/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://administracion.gob.es/"
+  },
+  "https://www.iom.int/careers": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.iom.int/iom-career-gateways"
+  },
+  "https://www.unhcr.org/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.unhcr.org/"
+  },
+  "https://www.icmpd.org/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.icmpd.org/"
+  },
+  "https://www.oecd.org/en/about/careers.html": {
+   "status": 206,
+   "ok": true,
+   "finalUrl": "https://www.oecd.org/en/about/careers.html"
+  },
+  "https://www.upf.edu/web/personal": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.upf.edu/web/personal"
+  },
+  "https://www.cruzroja.es/": {
+   "status": 206,
+   "ok": true,
+   "finalUrl": "https://www.cruzroja.es/"
+  },
+  "https://www.accem.es/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.accem.es/"
+  },
+  "https://www.cear.es/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://www.cear.es/"
+  },
+  "https://www.aecid.es/": {
+   "status": null,
+   "ok": false,
+   "error": "The operation was aborted due to timeout"
+  },
+  "https://exteriors.gencat.cat/ca/": {
+   "status": 200,
+   "ok": true,
+   "finalUrl": "https://exteriors.gencat.cat/ca/inici/"
+  }
+ }
+}

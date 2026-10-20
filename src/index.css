@@ -1,0 +1,287 @@
+@import '@fontsource-variable/source-serif-4/opsz.css';
+@import '@fontsource-variable/source-sans-3/wght.css';
+@import 'leaflet/dist/leaflet.css';
+@import 'tailwindcss';
+
+/*
+  Design system: "institutional publication".
+  White page, near-black ink, one navy for links and actions, hairline rules instead of boxes and shadows,
+  near-square corners, a serif for headings and a humanist sans for text and controls.
+  Colour carries meaning: navy = action, teal = data, green / amber / red = evidence status.
+  One statement size, one body size; hierarchy comes from the serif, weight, rules and space.
+  All text pairs are chosen for >= 4.5:1 contrast, in light and dark.
+  Motion: transform and opacity only, strong ease-out, under 300ms, with a reduced-motion variant.
+*/
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+@theme {
+  --font-display: 'Source Serif 4 Variable', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Source Sans 3 Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-sunken: var(--sunken);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-data: var(--data);
+  --color-data-soft: var(--data-soft);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-bad: var(--bad);
+  --color-bad-soft: var(--bad-soft);
+
+  /* Near-square corners everywhere, including Tailwind's rounded-* utilities. */
+  --radius-md: 0.1875rem;
+  --radius-lg: 0.1875rem;
+  --radius-xl: 0.25rem;
+  --radius-card: 0.1875rem;
+  --radius-control: 0.1875rem;
+  --text-statement: clamp(2rem, 1.45rem + 2.2vw, 2.75rem);
+
+  /* Flat by default. Only floating layers (dialogs, tooltips) get a shadow. */
+  --shadow-xs: none;
+  --shadow-sm: none;
+  --shadow-md: 0 4px 14px color-mix(in oklab, var(--shadow-color) calc(12% * var(--shadow-k)), transparent);
+  --shadow-lg: 0 14px 40px color-mix(in oklab, var(--shadow-color) calc(20% * var(--shadow-k)), transparent);
+}
+
+:root {
+  color-scheme: light;
+  --paper: oklch(100% 0 0);
+  --surface: oklch(100% 0 0);
+  --sunken: oklch(96.8% 0.003 250);
+  --ink: oklch(19% 0.01 255);
+  --muted: oklch(44% 0.012 255);
+  --rule: oklch(88% 0.005 255);
+  --accent: oklch(34% 0.1 258);
+  --accent-ink: oklch(99% 0 0);
+  --accent-soft: oklch(95.5% 0.015 255);
+  --data: oklch(40% 0.07 215);
+  --data-soft: oklch(96% 0.012 215);
+  --ok: oklch(38% 0.09 150);
+  --ok-soft: oklch(96% 0.02 150);
+  --warn: oklch(42% 0.09 70);
+  --warn-soft: oklch(96.5% 0.03 85);
+  --bad: oklch(43% 0.15 27);
+  --bad-soft: oklch(96% 0.02 27);
+  --shadow-color: oklch(25% 0.03 255);
+  --shadow-k: 1;
+
+  /* Motion curves (strong ease-out for entrances and feedback; drawer curve for side panels) */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --paper: oklch(17% 0.008 255);
+    --surface: oklch(17% 0.008 255);
+    --sunken: oklch(21.5% 0.009 255);
+    --ink: oklch(94% 0.004 255);
+    --muted: oklch(72% 0.01 255);
+    --rule: oklch(31% 0.01 255);
+    --accent: oklch(78% 0.09 250);
+    --accent-ink: oklch(16% 0.02 255);
+    --accent-soft: oklch(27% 0.04 252);
+    --data: oklch(79% 0.07 215);
+    --data-soft: oklch(26% 0.03 215);
+    --ok: oklch(78% 0.1 150);
+    --ok-soft: oklch(26% 0.04 150);
+    --warn: oklch(82% 0.09 85);
+    --warn-soft: oklch(28% 0.04 85);
+    --bad: oklch(77% 0.12 27);
+    --bad-soft: oklch(27% 0.05 27);
+    --shadow-color: oklch(0% 0 0);
+    --shadow-k: 4;
+  }
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --paper: oklch(17% 0.008 255);
+  --surface: oklch(17% 0.008 255);
+  --sunken: oklch(21.5% 0.009 255);
+  --ink: oklch(94% 0.004 255);
+  --muted: oklch(72% 0.01 255);
+  --rule: oklch(31% 0.01 255);
+  --accent: oklch(78% 0.09 250);
+  --accent-ink: oklch(16% 0.02 255);
+  --accent-soft: oklch(27% 0.04 252);
+  --data: oklch(79% 0.07 215);
+  --data-soft: oklch(26% 0.03 215);
+  --ok: oklch(78% 0.1 150);
+  --ok-soft: oklch(26% 0.04 150);
+  --warn: oklch(82% 0.09 85);
+  --warn-soft: oklch(28% 0.04 85);
+  --bad: oklch(77% 0.12 27);
+  --bad-soft: oklch(27% 0.05 27);
+  --shadow-color: oklch(0% 0 0);
+  --shadow-k: 4;
+}
+
+@layer base {
+html { background: var(--paper); }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+::selection { background: color-mix(in oklab, var(--accent) 22%, transparent); }
+
+/* Typography: serif headings, sans text. Tracking tightens as size grows; leading is tight on headings and open on body. */
+h1, h2 { font-family: var(--font-display); font-optical-sizing: auto; font-weight: 600; margin: 0; text-wrap: balance; }
+h3 { font-family: var(--font-sans); font-size: 1.0625rem; font-weight: 650; letter-spacing: 0; line-height: 1.3; margin: 0; }
+.statement { font-size: var(--text-statement); font-weight: 600; letter-spacing: -0.015em; line-height: 1.12; }
+h2 { font-size: 1.4375rem; letter-spacing: -0.005em; line-height: 1.25; }
+p { text-wrap: pretty; }
+.eyebrow { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); }
+.small { font-size: 0.9375rem; line-height: 1.55; }
+.prose-calm { max-width: 66ch; }
+
+/* Focus: always visible for keyboard users, never removed. */
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+}
+
+/* Skip link */
+.skip-link { position: absolute; left: -999px; top: 0; background: var(--accent); color: var(--accent-ink); padding: 0.5rem 1rem; z-index: 1000; }
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+/* Masthead: solid, with a navy rule on top. No blur, no shadow. */
+.site-header { background: var(--surface); border-top: 3px solid var(--accent); }
+
+/* Components */
+.card { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius-card); transition: background-color 150ms ease, border-color 150ms ease; }
+.rule-b { border-bottom: 1px solid var(--rule); }
+.rule-t { border-top: 1px solid var(--rule); }
+/* Ruled index entry: a heavy top rule and open space, instead of a box. */
+.tile { display: flex; flex-direction: column; gap: 0.375rem; height: 100%; border-top: 2px solid var(--ink); padding: 0.875rem 0 0.25rem; color: var(--ink); text-decoration: none; transition: background-color 150ms ease, border-color 150ms ease; }
+.tile-title { font-family: var(--font-display); font-size: 1.1875rem; font-weight: 600; line-height: 1.25; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; text-decoration-thickness: 1px; transition: text-decoration-color 150ms ease, color 150ms ease; }
+@media (hover: hover) and (pointer: fine) {
+  .tile:hover { border-top-color: var(--accent); }
+  .tile:hover .tile-title { color: var(--accent); text-decoration-color: currentColor; }
+}
+/* Call-out: a left rule marks the one thing to do next. */
+.callout { background: var(--sunken); border: 1px solid var(--rule); border-left: 4px solid var(--accent); border-radius: var(--radius-card); }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem; justify-content: center;
+  min-height: 2.5rem; padding: 0 1.125rem; border-radius: var(--radius-control);
+  border: 1px solid color-mix(in oklab, var(--ink) 45%, var(--rule)); background: var(--surface); color: var(--ink);
+  font: inherit; font-size: 1rem; font-weight: 600; cursor: pointer; text-decoration: none;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, transform 160ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover { background: var(--sunken); border-color: var(--ink); }
+}
+.btn:active:not([disabled]):not([aria-disabled='true']) { transform: scale(0.98); }
+.btn[disabled], .btn[aria-disabled='true'] { opacity: 0.5; cursor: not-allowed; }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover { background: color-mix(in oklab, var(--accent) 85%, black); border-color: color-mix(in oklab, var(--accent) 85%, black); }
+}
+.btn-ghost { background: transparent; border-color: transparent; }
+@media (hover: hover) and (pointer: fine) {
+  .btn-ghost:hover { background: var(--sunken); border-color: transparent; }
+}
+.btn-sm { min-height: 2rem; padding: 0 0.75rem; font-size: 0.9375rem; }
+.btn-icon { min-width: 2.5rem; padding: 0; }
+.btn-icon.btn-sm { min-width: 2rem; }
+.btn[aria-pressed='true'], .chip[aria-pressed='true'], .chip[aria-checked='true'] { background: var(--accent-soft); border-color: var(--accent); color: var(--ink); }
+
+.chip {
+  display: inline-flex; align-items: center; gap: 0.375rem; min-height: 2rem; padding: 0 0.75rem;
+  border: 1px solid color-mix(in oklab, var(--ink) 35%, var(--rule)); border-radius: var(--radius-control); background: var(--surface); color: var(--ink);
+  font: inherit; font-size: 0.9375rem; font-weight: 500; cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease, transform 160ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .chip:hover { background: var(--sunken); border-color: var(--ink); }
+}
+.chip:active { transform: scale(0.98); }
+
+/* Status labels: flat, bordered, set in text colour. No pills, no filled chips. */
+.badge { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.0625rem 0.4375rem; border-radius: 2px; font-size: 0.8125rem; font-weight: 600; border: 1px solid color-mix(in oklab, currentColor 40%, transparent); white-space: nowrap; }
+.badge-ok { background: var(--ok-soft); color: var(--ok); }
+.badge-warn { background: var(--warn-soft); color: var(--warn); }
+.badge-bad { background: var(--bad-soft); color: var(--bad); }
+.badge-data { background: var(--data-soft); color: var(--data); }
+.badge-muted { background: transparent; color: var(--muted); border-color: var(--rule); }
+.badge-accent { background: var(--accent-soft); color: var(--accent); }
+
+.field { display: block; width: 100%; min-height: 2.5rem; padding: 0.5rem 0.75rem; background: var(--surface); color: var(--ink); border: 1px solid color-mix(in oklab, var(--ink) 50%, var(--rule)); border-radius: var(--radius-control); font: inherit; font-size: 1rem; transition: border-color 150ms ease; }
+@media (hover: hover) and (pointer: fine) {
+  .field:hover { border-color: var(--ink); }
+}
+textarea.field { min-height: 6rem; resize: vertical; }
+.field::placeholder { color: var(--muted); }
+
+.meter { height: 0.5rem; background: var(--sunken); border-radius: 0; overflow: hidden; box-shadow: inset 0 0 0 1px var(--rule); }
+.meter > span { display: block; height: 100%; background: var(--data); }
+
+details > summary { cursor: pointer; list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary .chev { transition: transform 200ms var(--ease-out); }
+details[open] > summary .chev { transform: rotate(180deg); }
+
+/* Radix slider */
+.slider-root { position: relative; display: flex; align-items: center; user-select: none; touch-action: none; width: 100%; height: 1.75rem; }
+.slider-track { background: var(--sunken); box-shadow: inset 0 0 0 1px var(--rule); position: relative; flex-grow: 1; border-radius: 0; height: 0.5rem; }
+.slider-range { position: absolute; background: var(--accent); height: 100%; }
+.slider-thumb { display: block; width: 1.5rem; height: 1.5rem; background: var(--surface); border: 2px solid var(--accent); border-radius: 999px; }
+
+/* Dialog, drawer and tooltip: Radix keeps them mounted until the exit animation ends. Enter fast with a strong ease-out, leave faster. */
+@keyframes ui-fade-in { from { opacity: 0; } }
+@keyframes ui-fade-out { to { opacity: 0; } }
+@keyframes ui-pop-in { from { opacity: 0; transform: translate(-50%, -50%) scale(0.97); } }
+@keyframes ui-pop-out { to { opacity: 0; transform: translate(-50%, -50%) scale(0.98); } }
+@keyframes ui-drawer-in { from { transform: translateX(100%); } }
+@keyframes ui-drawer-out { to { transform: translateX(100%); } }
+@keyframes ui-tip-in { from { opacity: 0; transform: scale(0.97); } }
+@keyframes ui-tip-out { to { opacity: 0; transform: scale(0.97); } }
+
+.overlay { position: fixed; inset: 0; background: color-mix(in oklab, var(--ink) 45%, transparent); z-index: 50; }
+.overlay[data-state='open'] { animation: ui-fade-in 180ms var(--ease-out); }
+.overlay[data-state='closed'] { animation: ui-fade-out 140ms var(--ease-out) forwards; }
+.dialog { position: fixed; z-index: 51; background: var(--surface); border: 1px solid var(--rule); color: var(--ink); box-shadow: var(--shadow-lg); }
+.dialog-center { top: 50%; left: 50%; transform: translate(-50%, -50%); width: min(92vw, 40rem); max-height: 88vh; overflow: auto; border-radius: var(--radius-xl); }
+.dialog-center[data-state='open'] { animation: ui-pop-in 200ms var(--ease-out); }
+.dialog-center[data-state='closed'] { animation: ui-pop-out 140ms var(--ease-out) forwards; }
+.dialog-side { top: 0; right: 0; bottom: 0; width: min(100vw, 26rem); overflow: auto; border-width: 0 0 0 1px; }
+.dialog-side[data-state='open'] { animation: ui-drawer-in 280ms var(--ease-drawer); }
+.dialog-side[data-state='closed'] { animation: ui-drawer-out 200ms var(--ease-drawer) forwards; }
+
+.tooltip { transform-origin: var(--radix-tooltip-content-transform-origin); box-shadow: var(--shadow-md); }
+.tooltip[data-state='delayed-open'], .tooltip[data-state='instant-open'] { animation: ui-tip-in 140ms var(--ease-out); }
+.tooltip[data-state='closed'] { animation: ui-tip-out 100ms var(--ease-out) forwards; }
+
+/* Leaflet theming */
+.leaflet-container { font-family: var(--font-sans); background: var(--sunken); border-radius: var(--radius-card); }
+.leaflet-popup-content-wrapper, .leaflet-popup-tip { background: var(--surface); color: var(--ink); }
+.leaflet-container a { color: var(--accent); }
+
+/* Reduced motion: fewer and gentler, not zero. Movement goes; short fades that aid comprehension stay. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .overlay[data-state='open'], .dialog-center[data-state='open'], .dialog-side[data-state='open'], .tooltip[data-state='delayed-open'], .tooltip[data-state='instant-open'] { animation-name: ui-fade-in; animation-duration: 150ms !important; animation-timing-function: ease; }
+  .overlay[data-state='closed'], .dialog-center[data-state='closed'], .dialog-side[data-state='closed'], .tooltip[data-state='closed'] { animation-name: ui-fade-out; animation-duration: 100ms !important; animation-timing-function: ease; }
+  .btn:active, .chip:active { transform: none; }
+}
+
+/* Print: used by the report window and Ctrl+P on any page */
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; color: black; }
+  .card { border-color: #ccc; break-inside: avoid; }
+}
