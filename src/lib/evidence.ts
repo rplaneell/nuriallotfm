@@ -39,6 +39,10 @@ export function dedupeWorks(works: Work[]): WorkGroup[] {
   return groups;
 }
 
+/** True once the snapshot script has run for this topic (an empty result is then a real result, not a gap in retrieval). */
+export const literatureFetched = (topicId: string) => topicId in lit.byTopic;
+export const precedentsFetched = (topicId: string) => topicId in prec.byTopic;
+
 export function literatureFor(topicId: string): WorkGroup[] {
   const ids = lit.byTopic[topicId] ?? [];
   const works = ids.map((id) => lit.works[id]).filter(Boolean).map((w) => ({ ...w, title: plainText(w.title), abstractExcerpt: w.abstractExcerpt ? plainText(w.abstractExcerpt) : null }));

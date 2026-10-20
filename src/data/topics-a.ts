@@ -30,6 +30,7 @@ export const TOPICS_A: Topic[] = [
     alternatives: ['Focus only on the screening regulation in Spain.', 'Compare how Spain and Italy implement the solidarity mechanism, documents only.', 'Study how Catalonia’s administration is represented in Spain’s national plan.'],
     themes: { eu: 1, asylum: 0.8, border: 0.8, implementation: 0.9, capacity: 0.6, governance: 0.7 }, approaches: { implgap: 1, compare: 0.9, decisions: 0.4, explain: 0.5 },
     technical: 2, fieldwork: 1, lang: 'English sources sufficient',
+    regions: ['europe'], docLangs: [],
     criteria: {
       track: { score: 4, why: 'EU migration governance maps onto the track’s comparative policy and governance electives.' },
       clarity: { score: 4, why: 'The provisions are written down, so the codebook and cases can be specified precisely.' },
@@ -75,6 +76,7 @@ export const TOPICS_A: Topic[] = [
     alternatives: ['Compare two municipalities’ language-course provision only.', 'Document-only comparison of five integration plans.', 'Single-municipality implementation study of Manresa.'],
     themes: { local: 1, integration: 0.9, implementation: 0.8, governance: 0.6, capacity: 0.7, inequality: 0.4 }, approaches: { compare: 1, implgap: 0.9, explain: 0.7, recommend: 0.5 },
     technical: 2, fieldwork: 3, lang: 'Catalan/Spanish sources useful',
+    regions: ['europe'], docLangs: ['es','ca'],
     criteria: {
       track: { score: 5, why: 'Local integration governance is a core migration-track concern.' },
       clarity: { score: 4, why: 'Clear unit of analysis and variation to explain.' },
@@ -120,6 +122,7 @@ export const TOPICS_A: Topic[] = [
     alternatives: ['Only healthcare access in one city.', 'Compare two municipalities’ registration practice.', 'Review how complaints to the Síndic de Greuges have evolved over time.'],
     themes: { citizenship: 1, discretion: 0.8, local: 0.7, inequality: 0.7, implementation: 0.7, border: 0.4, capacity: 0.5 }, approaches: { implgap: 0.9, inequalities: 1, effects: 0.7, recommend: 0.6 },
     technical: 2, fieldwork: 2, lang: 'Catalan/Spanish sources useful',
+    regions: ['europe'], docLangs: ['es','ca'],
     criteria: {
       track: { score: 5, why: 'Directly about the gap between status, rights and administration.' },
       clarity: { score: 4, why: 'Distinct, observable requirements.' },
@@ -165,6 +168,7 @@ export const TOPICS_A: Topic[] = [
     alternatives: ['Process-trace one reform from proposal to adoption.', 'Compare Spain’s model with one other EU state, documents only.', 'Frame analysis of parliamentary debates only.'],
     themes: { border: 1, citizenship: 0.7, labour: 0.7, governance: 0.5, opinion: 0.4, implementation: 0.5 }, approaches: { decisions: 1, effects: 0.7, evaluate: 0.5, explain: 0.5 },
     technical: 2, fieldwork: 1, lang: 'Catalan/Spanish sources useful',
+    regions: ['europe'], docLangs: ['es'],
     criteria: {
       track: { score: 4, why: 'Central migration policy issue.' },
       clarity: { score: 4, why: 'Reform provisions are specific.' },
@@ -210,6 +214,7 @@ export const TOPICS_A: Topic[] = [
     alternatives: ['Evaluability of one language-course programme.', 'Compare indicator sets across three programmes.', 'Review EU-funded integration evaluations in Spain.'],
     themes: { evaluation: 1, integration: 0.8, implementation: 0.5, capacity: 0.5, governance: 0.4 }, approaches: { evaluate: 1, tools: 0.8, recommend: 0.8 },
     technical: 3, fieldwork: 1, lang: 'Catalan/Spanish sources useful',
+    regions: ['europe'], docLangs: ['es','ca'],
     criteria: {
       track: { score: 4, why: 'Policy evaluation within migration governance.' },
       clarity: { score: 4, why: 'Evaluability is a well-defined concept.' },
@@ -255,6 +260,7 @@ export const TOPICS_A: Topic[] = [
     alternatives: ['Compare Catalonia and another region.', 'Focus on the transition from reception to integration.'],
     themes: { asylum: 1, capacity: 0.9, governance: 0.9, local: 0.5, implementation: 0.6 }, approaches: { implgap: 0.8, explain: 0.6, recommend: 0.6, conflict: 0.4 },
     technical: 2, fieldwork: 3, lang: 'Catalan/Spanish sources useful',
+    regions: ['europe'], docLangs: ['es'],
     criteria: {
       track: { score: 4, why: 'Governance of reception is core.' }, clarity: { score: 3, why: 'Needs a tight definition of "coordination".' }, academic: { score: 3, why: 'Multilevel governance is established; contribution from the Spanish case.' },
       policy: { score: 5, why: 'Operationally relevant.' }, evidence: { score: 3, why: 'Operational data is limited.' }, data: { score: 3, why: 'Some information may need requests.' }, methodFit: { score: 4, why: 'Mapping fits.' },
@@ -292,6 +298,7 @@ export const TOPICS_A: Topic[] = [
     alternatives: ['Compare Spain and Poland on reception rights.', 'Focus on access to employment.', 'Frame analysis of political speeches only.'],
     themes: { asylum: 1, eu: 0.7, inequality: 0.6, integration: 0.4, governance: 0.5, opinion: 0.3 }, approaches: { compare: 0.9, inequalities: 0.8, explain: 0.6 },
     technical: 2, fieldwork: 1, lang: 'English sources sufficient',
+    regions: ['europe'], docLangs: [],
     criteria: {
       track: { score: 4, why: 'Comparative protection policy.' }, clarity: { score: 4, why: 'Clear comparison dimensions.' }, academic: { score: 3, why: 'Topic has attracted attention; a Spanish implementation angle needs checking.' },
       policy: { score: 4, why: 'Lessons for the ordinary system.' }, evidence: { score: 4, why: 'Strong official documentation.' }, data: { score: 4, why: 'Open.' }, methodFit: { score: 4, why: 'Matches.' },
@@ -329,6 +336,7 @@ export const TOPICS_A: Topic[] = [
     alternatives: ['One agreement through process tracing.', 'Compare Spain-Morocco with Italy-Libya cooperation, documents only.'],
     themes: { externalisation: 1, mediterranean: 1, border: 0.8, eu: 0.6, development: 0.4, governance: 0.5 }, approaches: { decisions: 0.9, conflict: 0.7, explain: 0.6, inequalities: 0.4 },
     technical: 2, fieldwork: 1, lang: 'English sources sufficient',
+    regions: ['europe','mena','ssa'], docLangs: [],
     criteria: {
       track: { score: 5, why: 'Mediterranean geopolitics is a track elective area.' }, clarity: { score: 3, why: 'Requires tight boundaries around "cooperation".' }, academic: { score: 3, why: 'Heavily studied; contribution must be specific.' },
       policy: { score: 4, why: 'Accountability discussions.' }, evidence: { score: 3, why: 'Official detail often limited.' }, data: { score: 3, why: 'Documents open; some are opaque.' }, methodFit: { score: 4, why: 'Document and discourse analysis fits.' },

@@ -27,6 +27,7 @@ export const TOPICS_B: Topic[] = [
     alternatives: ['Frame analysis of two parties only.', 'Descriptive link between CIS salience and parliamentary mentions.'],
     themes: { opinion: 1, governance: 0.4, local: 0.3, eu: 0.2, inequality: 0.2 }, approaches: { decisions: 1, explain: 0.7, conflict: 0.8 },
     technical: 3, fieldwork: 1, lang: 'Catalan/Spanish sources useful',
+    regions: ['europe'], docLangs: ['es','ca'],
     criteria: {
       track: { score: 3, why: 'Political context of migration; less focused on administration.' }, clarity: { score: 3, why: 'Operationalising "policy change" is the key challenge.' }, academic: { score: 4, why: 'Active debate; contribution depends on careful design.' },
       policy: { score: 3, why: 'Contextual rather than directly actionable.' }, evidence: { score: 4, why: 'Rich open sources.' }, data: { score: 4, why: 'Open or registration-only.' }, methodFit: { score: 3, why: 'Needs a clear plan to connect strands.' },
@@ -64,6 +65,7 @@ export const TOPICS_B: Topic[] = [
     alternatives: ['Only the asylum-registration appointment system.', 'Document the evolution of complaints about appointments.'],
     themes: { discretion: 1, capacity: 0.7, citizenship: 0.7, inequality: 0.7, implementation: 0.8, border: 0.4 }, approaches: { implgap: 0.9, inequalities: 0.9, explain: 0.6, recommend: 0.6 },
     technical: 2, fieldwork: 2, lang: 'Catalan/Spanish sources useful',
+    regions: ['europe'], docLangs: ['es','ca'],
     criteria: {
       track: { score: 4, why: 'Administration of status and rights.' }, clarity: { score: 4, why: 'Specific, observable procedure.' }, academic: { score: 4, why: 'Fits street-level/burden literature; Spanish application to be checked.' },
       policy: { score: 5, why: 'Highly actionable.' }, evidence: { score: 3, why: 'Documented in reports; practice data are partial.' }, data: { score: 4, why: 'Reports are public.' }, methodFit: { score: 4, why: 'Fits.' },
@@ -101,6 +103,7 @@ export const TOPICS_B: Topic[] = [
     alternatives: ['Only seasonal schemes in one region.', 'Document comparison of two sector agreements.'],
     themes: { labour: 1, border: 0.4, integration: 0.5, inequality: 0.5, implementation: 0.5, development: 0.3 }, approaches: { evaluate: 0.7, effects: 0.8, explain: 0.6, tools: 0.5 },
     technical: 3, fieldwork: 1, lang: 'Catalan/Spanish sources useful',
+    regions: ['europe'], docLangs: ['es'],
     criteria: {
       track: { score: 3, why: 'Labour migration is relevant, less central to the track electives.' }, clarity: { score: 4, why: 'Specific schemes and indicators.' }, academic: { score: 3, why: 'Substantial literature; novelty must be demonstrated.' },
       policy: { score: 4, why: 'Relevant to labour-mobility design.' }, evidence: { score: 4, why: 'Good official statistics.' }, data: { score: 4, why: 'Open statistics.' }, methodFit: { score: 4, why: 'Descriptive design suits data.' },
@@ -138,6 +141,7 @@ export const TOPICS_B: Topic[] = [
     alternatives: ['Legal analysis only.', 'Compare affiliation trends before and after reform, descriptively.'],
     themes: { gender: 1, labour: 0.9, inequality: 0.8, citizenship: 0.4, implementation: 0.5 }, approaches: { inequalities: 1, effects: 0.9, evaluate: 0.5 },
     technical: 2, fieldwork: 2, lang: 'Catalan/Spanish sources useful',
+    regions: ['europe'], docLangs: ['es'],
     criteria: {
       track: { score: 5, why: 'Intersectionality and discrimination is a track elective.' }, clarity: { score: 4, why: 'Specific reform.' }, academic: { score: 4, why: 'Fits gender and migration debates; novelty to check.' },
       policy: { score: 4, why: 'Labour-rights enforcement.' }, evidence: { score: 3, why: 'Official data partial for informal work.' }, data: { score: 4, why: 'Public.' }, methodFit: { score: 4, why: 'Fits.' },
@@ -175,6 +179,7 @@ export const TOPICS_B: Topic[] = [
     alternatives: ['Focus on the Mediterranean basin.', 'Compare EU and one other region.'],
     themes: { climate: 1, development: 0.7, governance: 0.5, eu: 0.5, asylum: 0.4, mediterranean: 0.3 }, approaches: { explain: 0.6, decisions: 0.6, recommend: 0.6 },
     technical: 2, fieldwork: 1, lang: 'English sources sufficient',
+    regions: ['europe','global'], docLangs: [],
     criteria: {
       track: { score: 3, why: 'Adjacent to track electives.' }, clarity: { score: 3, why: 'Definitions are contested.' }, academic: { score: 3, why: 'Active field; novelty must be shown.' },
       policy: { score: 3, why: 'Forward-looking.' }, evidence: { score: 3, why: 'Growing literature.' }, data: { score: 4, why: 'Open documents.' }, methodFit: { score: 4, why: 'Fits.' },
@@ -212,6 +217,7 @@ export const TOPICS_B: Topic[] = [
     alternatives: ['Process-trace the adoption of the mechanism.', 'Compare two regions only.'],
     themes: { governance: 0.9, asylum: 0.6, local: 0.5, inequality: 0.6, capacity: 0.8, implementation: 0.7 }, approaches: { conflict: 1, implgap: 0.8, compare: 0.7, effects: 0.6 },
     technical: 2, fieldwork: 1, lang: 'Catalan/Spanish sources useful',
+    regions: ['europe'], docLangs: ['es'],
     criteria: {
       track: { score: 4, why: 'Multilevel migration governance.' }, clarity: { score: 4, why: 'Clear mechanism.' }, academic: { score: 3, why: 'Very recent: literature is thin, but that also means more to check before claiming a gap.' },
       policy: { score: 5, why: 'Live.' }, evidence: { score: 3, why: 'Fast-moving evidence.' }, data: { score: 4, why: 'Public.' }, methodFit: { score: 4, why: 'Fits.' },
@@ -249,6 +255,7 @@ export const TOPICS_B: Topic[] = [
     alternatives: ['Only the post-2023 negotiation.', 'Legal allocation only.'],
     themes: { governance: 1, local: 0.7, implementation: 0.4, capacity: 0.5, eu: 0.2 }, approaches: { conflict: 1, decisions: 0.9, compare: 0.7, explain: 0.6 },
     technical: 2, fieldwork: 2, lang: 'Catalan/Spanish sources useful',
+    regions: ['europe'], docLangs: ['es','ca'],
     criteria: {
       track: { score: 4, why: 'Multilevel governance of migration.' }, clarity: { score: 3, why: 'Needs clear definition of "competence".' }, academic: { score: 4, why: 'Theoretical interest; check existing studies.' },
       policy: { score: 4, why: 'Relevant to intergovernmental talks.' }, evidence: { score: 4, why: 'Public.' }, data: { score: 4, why: 'Open.' }, methodFit: { score: 4, why: 'Tracing fits.' },
@@ -286,6 +293,7 @@ export const TOPICS_B: Topic[] = [
     alternatives: ['Single service type in selected districts.', 'Descriptive tabulations without maps.'],
     themes: { local: 0.7, integration: 0.6, inequality: 0.8, citizenship: 0.4, evaluation: 0.3 }, approaches: { tools: 1, effects: 0.7, inequalities: 0.7, evaluate: 0.4 },
     technical: 4, fieldwork: 1, lang: 'Catalan/Spanish sources useful',
+    regions: ['europe'], docLangs: ['es','ca'],
     criteria: {
       track: { score: 3, why: 'Integration-related; less about governance.' }, clarity: { score: 4, why: 'Precise.' }, academic: { score: 3, why: 'Descriptive; contribution mostly in design and transparency.' },
       policy: { score: 4, why: 'Planning relevance.' }, evidence: { score: 4, why: 'Open data.' }, data: { score: 5, why: 'Open and well documented.' }, methodFit: { score: 4, why: 'Fits.' },

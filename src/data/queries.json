@@ -1,66 +1,1129 @@
 {
   "eu-pact-implementation": {
-    "literature": ["implementation of the EU Pact on Migration and Asylum member states", "Common European Asylum System implementation gap member states", "Dublin system solidarity responsibility sharing"],
-    "precedents": ["asylum policy European Union", "Common European Asylum System", "Dublin regulation", "asylum reception member states"]
+    "literature": [
+      "implementation of the EU Pact on Migration and Asylum member states",
+      "Common European Asylum System implementation gap member states",
+      "Dublin system solidarity responsibility sharing"
+    ],
+    "precedents": [
+      "asylum policy European Union",
+      "Common European Asylum System",
+      "Dublin regulation",
+      "asylum reception member states"
+    ]
   },
   "municipal-integration-catalonia": {
-    "literature": ["local integration policy municipalities variation immigrant", "local turn migration policy municipalities", "interculturalism local policy Spain Catalonia"],
-    "precedents": ["local integration policy municipalities", "immigrant integration Catalonia", "interculturalism local government", "municipal migration policy"]
+    "literature": [
+      "local integration policy municipalities variation immigrant",
+      "local turn migration policy municipalities",
+      "interculturalism local policy Spain Catalonia"
+    ],
+    "precedents": [
+      "local integration policy municipalities",
+      "immigrant integration Catalonia",
+      "interculturalism local government",
+      "municipal migration policy"
+    ]
   },
   "padron-access-rights": {
-    "literature": ["administrative burden access to public services immigrants", "irregular migrants access to healthcare Spain", "municipal registration empadronamiento migrants access to services"],
-    "precedents": ["irregular migrants access to healthcare", "administrative barriers immigrants public services", "access to rights undocumented migrants", "municipal registration migrants"]
+    "literature": [
+      "administrative burden access to public services immigrants",
+      "irregular migrants access to healthcare Spain",
+      "municipal registration empadronamiento migrants access to services"
+    ],
+    "precedents": [
+      "irregular migrants access to healthcare",
+      "administrative barriers immigrants public services",
+      "access to rights undocumented migrants",
+      "municipal registration migrants"
+    ]
   },
   "regularisation-effects": {
-    "literature": ["regularisation of irregular migrants Spain effects", "regularization programmes Europe outcomes", "arraigo residence permit Spain irregular migration"],
-    "precedents": ["regularisation irregular migrants Spain", "immigration policy Spain residence permits", "undocumented migrants policy"]
+    "literature": [
+      "regularisation of irregular migrants Spain effects",
+      "regularization programmes Europe outcomes",
+      "arraigo residence permit Spain irregular migration"
+    ],
+    "precedents": [
+      "regularisation irregular migrants Spain",
+      "immigration policy Spain residence permits",
+      "undocumented migrants policy"
+    ]
   },
   "evaluating-integration-programmes": {
-    "literature": ["evaluation of integration programmes for immigrants", "policy evaluation immigrant integration causal effects", "monitoring and evaluation migrant integration policy evidence"],
-    "precedents": ["evaluation integration programmes immigrants", "policy evaluation migration", "integration courses effectiveness refugees"]
+    "literature": [
+      "evaluation of integration programmes for immigrants",
+      "policy evaluation immigrant integration causal effects",
+      "monitoring and evaluation migrant integration policy evidence"
+    ],
+    "precedents": [
+      "evaluation integration programmes immigrants",
+      "policy evaluation migration",
+      "integration courses effectiveness refugees"
+    ]
   },
   "reception-system-governance": {
-    "literature": ["governance of reception of asylum seekers coordination levels of government", "asylum reception system capacity multilevel governance", "refugee reception local authorities dispersal policy"],
-    "precedents": ["asylum reception system governance", "refugee reception local authorities", "dispersal policy asylum seekers", "reception conditions asylum"]
+    "literature": [
+      "governance of reception of asylum seekers coordination levels of government",
+      "asylum reception system capacity multilevel governance",
+      "refugee reception local authorities dispersal policy"
+    ],
+    "precedents": [
+      "asylum reception system governance",
+      "refugee reception local authorities",
+      "dispersal policy asylum seekers",
+      "reception conditions asylum"
+    ]
   },
   "temporary-protection-comparison": {
-    "literature": ["Temporary Protection Directive Ukraine implementation member states", "differential treatment Ukrainian refugees other refugees Europe", "temporary protection Ukrainians Spain reception"],
-    "precedents": ["Ukrainian refugees temporary protection", "temporary protection directive", "differential treatment refugees Europe Ukraine"]
+    "literature": [
+      "Temporary Protection Directive Ukraine implementation member states",
+      "differential treatment Ukrainian refugees other refugees Europe",
+      "temporary protection Ukrainians Spain reception"
+    ],
+    "precedents": [
+      "Ukrainian refugees temporary protection",
+      "temporary protection directive",
+      "differential treatment refugees Europe Ukraine"
+    ]
   },
   "externalisation-mediterranean": {
-    "literature": ["externalisation of EU migration control cooperation third countries Morocco", "EU migration partnerships third countries conditionality", "Mediterranean migration governance externalisation Spain Morocco"],
-    "precedents": ["externalisation of border control", "EU Morocco migration cooperation", "Mediterranean migration policy EU", "EU-Turkey statement"]
+    "literature": [
+      "externalisation of EU migration control cooperation third countries Morocco",
+      "EU migration partnerships third countries conditionality",
+      "Mediterranean migration governance externalisation Spain Morocco"
+    ],
+    "precedents": [
+      "externalisation of border control",
+      "EU Morocco migration cooperation",
+      "Mediterranean migration policy EU",
+      "EU-Turkey statement"
+    ]
   },
   "discourse-and-policy": {
-    "literature": ["public opinion immigration policy responsiveness", "radical right immigration policy outcomes mainstream parties", "party discourse immigration Spain Catalonia Vox"],
-    "precedents": ["political discourse immigration", "public opinion immigration policy", "radical right immigration parties", "media framing migration"]
+    "literature": [
+      "public opinion immigration policy responsiveness",
+      "radical right immigration policy outcomes mainstream parties",
+      "party discourse immigration Spain Catalonia Vox"
+    ],
+    "precedents": [
+      "political discourse immigration",
+      "public opinion immigration policy",
+      "radical right immigration parties",
+      "media framing migration"
+    ]
   },
   "bureaucratic-discretion-appointments": {
-    "literature": ["street-level bureaucracy immigration discretion", "bureaucratic discretion asylum decisions unequal outcomes", "administrative burden appointment system immigration offices"],
-    "precedents": ["street-level bureaucracy immigration", "bureaucratic discretion migration", "administrative burden migrants", "asylum decision-making"]
+    "literature": [
+      "street-level bureaucracy immigration discretion",
+      "bureaucratic discretion asylum decisions unequal outcomes",
+      "administrative burden appointment system immigration offices"
+    ],
+    "precedents": [
+      "street-level bureaucracy immigration",
+      "bureaucratic discretion migration",
+      "administrative burden migrants",
+      "asylum decision-making"
+    ]
   },
   "labour-migration-pathways": {
-    "literature": ["labour migration policy Spain seasonal agricultural workers", "labour market integration immigrants regularisation employment Spain", "circular migration programmes evaluation hiring in origin"],
-    "precedents": ["labour migration policy", "seasonal agricultural workers migrants", "labour market integration immigrants", "circular migration"]
+    "literature": [
+      "labour migration policy Spain seasonal agricultural workers",
+      "labour market integration immigrants regularisation employment Spain",
+      "circular migration programmes evaluation hiring in origin"
+    ],
+    "precedents": [
+      "labour migration policy",
+      "seasonal agricultural workers migrants",
+      "labour market integration immigrants",
+      "circular migration"
+    ]
   },
   "gender-domestic-work": {
-    "literature": ["migrant domestic workers policy reform Spain ILO convention 189", "gender intersectionality migration policy", "care work migration regime welfare state"],
-    "precedents": ["migrant domestic workers", "gender and migration policy", "intersectionality migrant women", "care work migration"]
+    "literature": [
+      "migrant domestic workers policy reform Spain ILO convention 189",
+      "gender intersectionality migration policy",
+      "care work migration regime welfare state"
+    ],
+    "precedents": [
+      "migrant domestic workers",
+      "gender and migration policy",
+      "intersectionality migrant women",
+      "care work migration"
+    ]
   },
   "climate-mobility-governance": {
-    "literature": ["climate-related mobility governance policy frameworks", "climate migration protection gaps legal frameworks", "environmental displacement policy European Union"],
-    "precedents": ["climate migration governance", "environmental displacement policy", "climate change human mobility policy"]
+    "literature": [
+      "climate-related mobility governance policy frameworks",
+      "climate migration protection gaps legal frameworks",
+      "environmental displacement policy European Union"
+    ],
+    "precedents": [
+      "climate migration governance",
+      "environmental displacement policy",
+      "climate change human mobility policy"
+    ]
   },
   "unaccompanied-minors-distribution": {
-    "literature": ["unaccompanied minors reception policy Spain regions", "unaccompanied migrant children protection system governance Europe", "territorial solidarity distribution of asylum seekers and minors"],
-    "precedents": ["unaccompanied minors Spain", "unaccompanied migrant children protection", "child protection migration policy"]
+    "literature": [
+      "unaccompanied minors reception policy Spain regions",
+      "unaccompanied migrant children protection system governance Europe",
+      "territorial solidarity distribution of asylum seekers and minors"
+    ],
+    "precedents": [
+      "unaccompanied minors Spain",
+      "unaccompanied migrant children protection",
+      "child protection migration policy"
+    ]
   },
   "multilevel-competences-catalonia": {
-    "literature": ["multilevel governance of immigration subnational competences", "regional immigration policy autonomy Catalonia Quebec", "subnational migration policy devolution immigration powers"],
-    "precedents": ["multilevel governance migration", "regional immigration policy competences", "subnational migration policy", "Catalonia immigration competences"]
+    "literature": [
+      "multilevel governance of immigration subnational competences",
+      "regional immigration policy autonomy Catalonia Quebec",
+      "subnational migration policy devolution immigration powers"
+    ],
+    "precedents": [
+      "multilevel governance migration",
+      "regional immigration policy competences",
+      "subnational migration policy",
+      "Catalonia immigration competences"
+    ]
   },
   "geospatial-service-access": {
-    "literature": ["spatial analysis immigrant integration neighbourhood segregation Barcelona", "geospatial access to public services immigrants open data", "residential segregation immigrants Spanish cities"],
-    "precedents": ["spatial segregation immigrants Barcelona", "neighbourhood diversity immigrants", "geospatial analysis migration", "residential segregation migrants"]
+    "literature": [
+      "spatial analysis immigrant integration neighbourhood segregation Barcelona",
+      "geospatial access to public services immigrants open data",
+      "residential segregation immigrants Spanish cities"
+    ],
+    "precedents": [
+      "spatial segregation immigrants Barcelona",
+      "neighbourhood diversity immigrants",
+      "geospatial analysis migration",
+      "residential segregation migrants"
+    ]
+  },
+  "gcm-national-implementation": {
+    "literature": [
+      "Global Compact for Migration implementation states",
+      "soft law migration governance implementation",
+      "norm localisation international migration law"
+    ],
+    "precedents": [
+      "Global Compact for Migration",
+      "migration governance international organisations"
+    ]
+  },
+  "gcr-responsibility-sharing-pledges": {
+    "literature": [
+      "Global Compact on Refugees responsibility sharing",
+      "Global Refugee Forum pledges",
+      "burden sharing refugees hosting countries"
+    ],
+    "precedents": [
+      "responsibility sharing refugees",
+      "Global Compact on Refugees"
+    ]
+  },
+  "unhcr-iom-mandates-coordination": {
+    "literature": [
+      "UNHCR IOM relationship mandates",
+      "international organisations migration refugees competition cooperation",
+      "mixed migration institutional coordination United Nations"
+    ],
+    "precedents": [
+      "UNHCR IOM",
+      "international organisations migration"
+    ]
+  },
+  "regional-consultative-processes": {
+    "literature": [
+      "regional consultative processes migration",
+      "Rabat Process migration dialogue",
+      "Colombo Process labour migration Asia"
+    ],
+    "precedents": [
+      "regional migration dialogue",
+      "migration cooperation Africa Europe"
+    ]
+  },
+  "migration-in-sdg-reviews": {
+    "literature": [
+      "migration Sustainable Development Goals voluntary national reviews",
+      "migration and development goals reporting states",
+      "SDG target 10.7 migration policy"
+    ],
+    "precedents": [
+      "migration Sustainable Development Goals",
+      "migration development goals"
+    ]
+  },
+  "protracted-displacement-financing": {
+    "literature": [
+      "financing protracted displacement host countries",
+      "World Bank refugee financing concessional",
+      "humanitarian development nexus refugees"
+    ],
+    "precedents": [
+      "refugee hosting development finance",
+      "protracted displacement"
+    ]
+  },
+  "migration-statistics-definitions": {
+    "literature": [
+      "international migration statistics definitions comparability",
+      "who is a migrant definition statistics",
+      "measuring international migration data sources"
+    ],
+    "precedents": [
+      "migration statistics definitions",
+      "migrant stock estimates"
+    ]
+  },
+  "readmission-agreements-comparison": {
+    "literature": [
+      "readmission agreements European Union",
+      "EU readmission cooperation third countries",
+      "informal readmission arrangements"
+    ],
+    "precedents": [
+      "readmission agreements",
+      "return cooperation third countries"
+    ]
+  },
+  "visa-leverage-third-countries": {
+    "literature": [
+      "EU visa policy leverage readmission",
+      "visa restrictions conditionality migration cooperation",
+      "Visa Code article 25a"
+    ],
+    "precedents": [
+      "visa policy conditionality",
+      "EU visa policy third countries"
+    ]
+  },
+  "diaspora-engagement-comparison": {
+    "literature": [
+      "diaspora engagement policies emigration states",
+      "emigrant institutions consular policy",
+      "state outreach to citizens abroad"
+    ],
+    "precedents": [
+      "diaspora policy",
+      "emigration state policy"
+    ]
+  },
+  "remittance-policy-costs": {
+    "literature": [
+      "remittance costs policy corridors",
+      "remittance transfer prices regulation",
+      "remittances Spain Latin America Morocco"
+    ],
+    "precedents": [
+      "remittance policy",
+      "remittance costs"
+    ]
+  },
+  "migration-development-conditionality": {
+    "literature": [
+      "EU development aid migration conditionality",
+      "migration cooperation aid Africa European Union",
+      "EU Trust Fund for Africa migration"
+    ],
+    "precedents": [
+      "aid migration conditionality",
+      "EU Africa migration cooperation"
+    ]
+  },
+  "seasonal-labour-schemes-intercontinental": {
+    "literature": [
+      "seasonal agricultural worker programmes comparison",
+      "temporary labour migration schemes protection",
+      "circular migration agricultural workers Spain Canada"
+    ],
+    "precedents": [
+      "seasonal agricultural workers",
+      "circular migration"
+    ]
+  },
+  "bilateral-labour-agreements-design": {
+    "literature": [
+      "bilateral labour agreements migration",
+      "labour migration agreements protection recruitment",
+      "bilateral labour migration agreements Spain"
+    ],
+    "precedents": [
+      "bilateral labour agreements",
+      "labour migration recruitment"
+    ]
+  },
+  "complementary-pathways-resettlement": {
+    "literature": [
+      "complementary pathways refugees",
+      "humanitarian corridors Italy",
+      "resettlement and private sponsorship comparison"
+    ],
+    "precedents": [
+      "complementary pathways",
+      "refugee resettlement"
+    ]
+  },
+  "migration-diplomacy-instrumentalisation": {
+    "literature": [
+      "migration diplomacy",
+      "instrumentalisation of migration European Union",
+      "coercive engineered migration"
+    ],
+    "precedents": [
+      "instrumentalisation migration",
+      "migration geopolitics"
+    ]
+  },
+  "immigration-detention-comparison": {
+    "literature": [
+      "immigration detention comparative law",
+      "immigration detention oversight",
+      "detention of migrants Spain CIE"
+    ],
+    "precedents": [
+      "immigration detention",
+      "migrant detention oversight"
+    ]
+  },
+  "digital-borders-biometrics": {
+    "literature": [
+      "biometrics migration databases Eurodac",
+      "digital borders European Union Entry Exit System",
+      "biometric registration refugees UNHCR"
+    ],
+    "precedents": [
+      "biometrics migration",
+      "digital border management"
+    ]
+  },
+  "automated-decisions-asylum": {
+    "literature": [
+      "automated decision making immigration",
+      "algorithms asylum decision-making",
+      "artificial intelligence border management migration"
+    ],
+    "precedents": [
+      "automated decision making migration",
+      "algorithms immigration"
+    ]
+  },
+  "trafficking-policy-comparison": {
+    "literature": [
+      "human trafficking policy Nigeria Italy",
+      "anti-trafficking victim identification asylum",
+      "trafficking Nigeria Europe corridor"
+    ],
+    "precedents": [
+      "human trafficking policy",
+      "anti-trafficking asylum"
+    ]
+  },
+  "criminalisation-of-solidarity": {
+    "literature": [
+      "criminalisation of solidarity migrants",
+      "facilitation of irregular entry humanitarian exemption",
+      "criminalisation search and rescue"
+    ],
+    "precedents": [
+      "criminalisation humanitarian assistance migrants",
+      "migrant smuggling law"
+    ]
+  },
+  "statelessness-nationality-reform": {
+    "literature": [
+      "statelessness nationality law reform",
+      "statelessness prevention",
+      "gender discrimination nationality laws"
+    ],
+    "precedents": [
+      "statelessness",
+      "nationality law reform"
+    ]
+  },
+  "citizenship-by-investment": {
+    "literature": [
+      "citizenship by investment",
+      "investor residence golden visa Europe",
+      "investor migration programmes"
+    ],
+    "precedents": [
+      "golden visa",
+      "citizenship by investment"
+    ]
+  },
+  "health-worker-recruitment-ethics": {
+    "literature": [
+      "ethical recruitment health workers WHO Code",
+      "international recruitment nurses Spain",
+      "health worker migration source countries"
+    ],
+    "precedents": [
+      "health worker migration",
+      "nurse recruitment international"
+    ]
+  },
+  "international-students-caps": {
+    "literature": [
+      "international student caps policy",
+      "student migration policy Canada Australia",
+      "post-study work rights international students"
+    ],
+    "precedents": [
+      "international students policy",
+      "student migration"
+    ]
+  },
+  "refugee-right-to-work-global": {
+    "literature": [
+      "refugee right to work",
+      "refugees labour market access Uganda Jordan",
+      "refugee employment policy comparison"
+    ],
+    "precedents": [
+      "refugee right to work",
+      "refugees labour market access"
+    ]
+  },
+  "cash-assistance-refugees-evidence": {
+    "literature": [
+      "cash assistance refugees evaluation",
+      "cash transfers refugees Jordan Lebanon",
+      "multipurpose cash assistance outcomes"
+    ],
+    "precedents": [
+      "cash assistance refugees",
+      "refugee aid evaluation"
+    ]
+  },
+  "gender-persecution-asylum": {
+    "literature": [
+      "gender-related persecution asylum",
+      "sexual orientation asylum credibility",
+      "asylum gender guidelines"
+    ],
+    "precedents": [
+      "gender asylum",
+      "LGBTI asylum"
+    ]
+  },
+  "climate-mobility-in-ndcs": {
+    "literature": [
+      "human mobility nationally determined contributions",
+      "climate displacement national climate plans",
+      "climate change migration policy Pacific"
+    ],
+    "precedents": [
+      "climate displacement policy",
+      "climate mobility"
+    ]
+  },
+  "offshore-asylum-processing": {
+    "literature": [
+      "offshore asylum processing",
+      "externalisation asylum Australia Rwanda Albania",
+      "third country asylum transfer arrangements"
+    ],
+    "precedents": [
+      "offshore asylum processing",
+      "externalised asylum"
+    ]
+  },
+  "accountability-after-border-deaths": {
+    "literature": [
+      "accountability border deaths migrants",
+      "Melilla 2022 border tragedy",
+      "Pylos shipwreck investigation accountability"
+    ],
+    "precedents": [
+      "border deaths accountability",
+      "migrant deaths Mediterranean"
+    ]
+  },
+  "points-systems-transfer": {
+    "literature": [
+      "points-based immigration systems",
+      "skilled migration selection Canada EU Blue Card",
+      "policy transfer immigration selection"
+    ],
+    "precedents": [
+      "points system immigration",
+      "skilled migrant selection"
+    ]
+  },
+  "ecowas-free-movement-gaps": {
+    "literature": [
+      "ECOWAS free movement implementation",
+      "regional free movement West Africa",
+      "ECOWAS protocol free movement obstacles"
+    ],
+    "precedents": [
+      "ECOWAS free movement",
+      "West Africa mobility"
+    ]
+  },
+  "au-free-movement-protocol": {
+    "literature": [
+      "African Union free movement protocol",
+      "African continental free movement ratification",
+      "regional integration mobility Africa"
+    ],
+    "precedents": [
+      "African Union free movement",
+      "African mobility integration"
+    ]
+  },
+  "uganda-refugee-settlement-model": {
+    "literature": [
+      "Uganda refugee policy self-reliance settlement",
+      "Uganda refugee rights land work",
+      "Uganda refugee response evaluation"
+    ],
+    "precedents": [
+      "Uganda refugees",
+      "refugee settlement approach"
+    ]
+  },
+  "kenya-camps-policy-shifts": {
+    "literature": [
+      "Kenya refugee policy camp closure",
+      "Dadaab Kakuma refugee policy",
+      "Kenya Refugee Act reform"
+    ],
+    "precedents": [
+      "Kenya refugee camps",
+      "Dadaab"
+    ]
+  },
+  "niger-smuggling-law-eu-funding": {
+    "literature": [
+      "Niger migrant smuggling law",
+      "EU migration policy Sahel Niger",
+      "criminalisation of smuggling Niger Agadez"
+    ],
+    "precedents": [
+      "Niger migration policy",
+      "Sahel migration EU"
+    ]
+  },
+  "eu-talent-partnerships-africa": {
+    "literature": [
+      "EU talent partnerships Africa",
+      "mobility partnerships European Union third countries",
+      "legal migration pathways EU Africa"
+    ],
+    "precedents": [
+      "EU mobility partnerships",
+      "talent partnerships"
+    ]
+  },
+  "libya-maritime-cooperation-accountability": {
+    "literature": [
+      "Libyan coast guard EU cooperation",
+      "interceptions Libya Italy memorandum of understanding",
+      "central Mediterranean cooperation accountability"
+    ],
+    "precedents": [
+      "Libya coast guard",
+      "central Mediterranean cooperation"
+    ]
+  },
+  "ethiopia-gulf-domestic-workers": {
+    "literature": [
+      "Ethiopia migrant domestic workers Gulf",
+      "Ethiopia labour migration ban",
+      "bilateral labour agreement Ethiopia Saudi Arabia"
+    ],
+    "precedents": [
+      "Ethiopian domestic workers",
+      "Gulf labour migration Ethiopia"
+    ]
+  },
+  "south-africa-migration-policy-politics": {
+    "literature": [
+      "South Africa migration policy white paper",
+      "xenophobia South Africa politics",
+      "South Africa refugee policy"
+    ],
+    "precedents": [
+      "South Africa migration policy",
+      "xenophobia South Africa"
+    ]
+  },
+  "morocco-migration-strategy": {
+    "literature": [
+      "Morocco migration policy regularisation 2014",
+      "Morocco national immigration and asylum strategy",
+      "Morocco transit country migration policy"
+    ],
+    "precedents": [
+      "Morocco migration policy",
+      "Morocco regularisation"
+    ]
+  },
+  "mediterranean-mous-tunisia-egypt-mauritania": {
+    "literature": [
+      "EU Tunisia memorandum of understanding migration",
+      "EU partnership Egypt Mauritania migration",
+      "soft law migration agreements EU"
+    ],
+    "precedents": [
+      "EU Tunisia memorandum",
+      "migration partnership soft law"
+    ]
+  },
+  "kampala-convention-domestication": {
+    "literature": [
+      "Kampala Convention internally displaced persons",
+      "internal displacement law Africa",
+      "domestication of Kampala Convention"
+    ],
+    "precedents": [
+      "Kampala Convention",
+      "internal displacement Africa"
+    ]
+  },
+  "venezuelan-regularisation-latam": {
+    "literature": [
+      "Venezuelan migrants regularisation Colombia",
+      "Temporary Protection Statute Venezuelan Colombia",
+      "Venezuelan migration Latin America policy responses Peru Chile"
+    ],
+    "precedents": [
+      "Venezuelan migrants",
+      "Venezuelan migration Latin America"
+    ]
+  },
+  "cartagena-regional-refugee-law": {
+    "literature": [
+      "Cartagena Declaration refugee definition",
+      "Latin America refugee law regional",
+      "Brazil Declaration refugees"
+    ],
+    "precedents": [
+      "Cartagena Declaration",
+      "Latin America refugee law"
+    ]
+  },
+  "mercosur-residence-implementation": {
+    "literature": [
+      "Mercosur residence agreement migration",
+      "free movement South America Mercosur migrants",
+      "regional migration governance South America"
+    ],
+    "precedents": [
+      "Mercosur migration",
+      "South America migration governance"
+    ]
+  },
+  "darien-corridor-governance": {
+    "literature": [
+      "Darien Gap migration",
+      "migration Panama Colombia regional cooperation",
+      "migrants crossing Darien policy"
+    ],
+    "precedents": [
+      "Darien migration",
+      "Latin America transit migration"
+    ]
+  },
+  "mexico-buffer-us-pressure": {
+    "literature": [
+      "Mexico migration enforcement United States pressure",
+      "Mexico asylum system COMAR",
+      "Remain in Mexico Migrant Protection Protocols"
+    ],
+    "precedents": [
+      "Mexico migration policy",
+      "Mexico asylum"
+    ]
+  },
+  "brazil-operation-welcome": {
+    "literature": [
+      "Operation Welcome Brazil Venezuelan",
+      "Brazil interiorization Venezuelan migrants",
+      "Brazil refugee reception policy"
+    ],
+    "precedents": [
+      "Brazil Venezuelan migrants",
+      "Brazil refugee reception"
+    ]
+  },
+  "spain-latin-america-nationality-pathways": {
+    "literature": [
+      "Spanish nationality Latin American privileged naturalisation",
+      "descent-based citizenship Europe",
+      "Democratic Memory Law nationality descendants"
+    ],
+    "precedents": [
+      "Spanish nationality law",
+      "citizenship by descent"
+    ]
+  },
+  "dominican-haiti-nationality": {
+    "literature": [
+      "Dominican Republic nationality ruling 168-13 statelessness",
+      "Haitian descent Dominican citizenship",
+      "Dominican Republic migration regularisation plan"
+    ],
+    "precedents": [
+      "Dominican Republic statelessness",
+      "Haitian migrants Dominican Republic"
+    ]
+  },
+  "central-america-remittance-diaspora": {
+    "literature": [
+      "remittances El Salvador Guatemala diaspora policy",
+      "deportation return reintegration Central America",
+      "Central American migration remittances development"
+    ],
+    "precedents": [
+      "Central America remittances",
+      "El Salvador diaspora"
+    ]
+  },
+  "canada-us-safe-third-country": {
+    "literature": [
+      "Safe Third Country Agreement Canada United States",
+      "safe third country asylum Dublin comparison",
+      "asylum seekers Roxham Road"
+    ],
+    "precedents": [
+      "safe third country agreement",
+      "Canada asylum policy"
+    ]
+  },
+  "canada-private-sponsorship-spain": {
+    "literature": [
+      "private sponsorship refugees Canada",
+      "community sponsorship Europe refugees",
+      "refugee sponsorship programme evaluation"
+    ],
+    "precedents": [
+      "refugee sponsorship",
+      "community sponsorship"
+    ]
+  },
+  "sanctuary-cities-us-barcelona": {
+    "literature": [
+      "sanctuary cities immigration enforcement",
+      "welcoming cities refuge cities Barcelona",
+      "local resistance immigration enforcement federalism"
+    ],
+    "precedents": [
+      "sanctuary cities",
+      "refuge cities"
+    ]
+  },
+  "pacific-labour-mobility-schemes": {
+    "literature": [
+      "Pacific Australia Labour Mobility scheme",
+      "Recognised Seasonal Employer New Zealand Pacific workers",
+      "Pacific labour mobility development outcomes"
+    ],
+    "precedents": [
+      "Pacific labour mobility",
+      "seasonal worker Pacific"
+    ]
+  },
+  "pacific-climate-visas-tuvalu": {
+    "literature": [
+      "Tuvalu Australia Falepili Union climate mobility",
+      "climate migration Pacific Islands visa",
+      "Pacific Access Category migration climate"
+    ],
+    "precedents": [
+      "Pacific climate migration",
+      "Tuvalu migration"
+    ]
+  },
+  "kafala-reform-gulf": {
+    "literature": [
+      "kafala reform Qatar labour",
+      "Gulf sponsorship system migrant workers reform",
+      "Saudi Arabia labour reform migrant workers"
+    ],
+    "precedents": [
+      "kafala system",
+      "Gulf migrant workers"
+    ]
+  },
+  "asia-emigration-governance-philippines-nepal": {
+    "literature": [
+      "Philippines overseas worker policy",
+      "Nepal foreign employment recruitment regulation",
+      "labour emigration governance Asia sending states"
+    ],
+    "precedents": [
+      "overseas workers Philippines",
+      "Nepal migrant workers"
+    ]
+  },
+  "rohingya-bangladesh-governance": {
+    "literature": [
+      "Rohingya refugees Bangladesh governance",
+      "Bhasan Char relocation Rohingya",
+      "Rohingya response Cox's Bazar policy"
+    ],
+    "precedents": [
+      "Rohingya refugees Bangladesh",
+      "Rohingya policy"
+    ]
+  },
+  "jordan-compact-labour-access": {
+    "literature": [
+      "Jordan Compact Syrian refugees work permits",
+      "refugee labour market access Jordan evaluation",
+      "EU Jordan trade concessions refugees"
+    ],
+    "precedents": [
+      "Jordan Compact",
+      "Syrian refugees Jordan labour"
+    ]
+  },
+  "turkey-eu-statement-returns": {
+    "literature": [
+      "EU Turkey Statement 2016",
+      "EU Turkey deal returns Greece",
+      "EU Turkey refugee cooperation legal status"
+    ],
+    "precedents": [
+      "EU Turkey statement",
+      "EU Turkey refugee deal"
+    ]
+  },
+  "japan-labour-migration-turn": {
+    "literature": [
+      "Japan foreign workers policy technical intern training",
+      "Japan Specified Skilled Worker immigration",
+      "Japan immigration policy labour shortage"
+    ],
+    "precedents": [
+      "Japan immigration policy",
+      "Japan foreign workers"
+    ]
+  },
+  "korea-eps-vs-spain-contratacion-origen": {
+    "literature": [
+      "Korea Employment Permit System migrant workers",
+      "government-to-government labour recruitment",
+      "hiring in origin Spain seasonal workers"
+    ],
+    "precedents": [
+      "Employment Permit System Korea",
+      "labour recruitment government to government"
+    ]
+  },
+  "afghan-returns-pakistan-iran": {
+    "literature": [
+      "Afghan refugees return Pakistan",
+      "Afghan refugees Iran deportation policy",
+      "Afghan returns policy host countries"
+    ],
+    "precedents": [
+      "Afghan refugees Pakistan",
+      "Afghan returns"
+    ]
+  },
+  "domestic-worker-regimes-asia-spain": {
+    "literature": [
+      "migrant domestic workers Hong Kong Singapore",
+      "domestic workers ILO Convention 189 Spain",
+      "live-in domestic workers regime comparison"
+    ],
+    "precedents": [
+      "migrant domestic workers",
+      "domestic workers regulation"
+    ]
+  },
+  "thailand-myanmar-migrant-labour": {
+    "literature": [
+      "Thailand migrant workers Myanmar registration",
+      "Thailand memorandum of understanding migrant labour",
+      "Thailand migrant workers amnesty irregular"
+    ],
+    "precedents": [
+      "Thailand migrant workers",
+      "Myanmar migrants Thailand"
+    ]
+  },
+  "assam-citizenship-statelessness": {
+    "literature": [
+      "Assam National Register of Citizens statelessness",
+      "citizenship verification India Assam",
+      "Foreigners Tribunals Assam"
+    ],
+    "precedents": [
+      "Assam citizenship",
+      "statelessness India"
+    ]
+  },
+  "returns-safety-assessment-syria-afghanistan": {
+    "literature": [
+      "country of origin information return safety Syria",
+      "EUAA country guidance Afghanistan Syria",
+      "safe return refugees assessment standards"
+    ],
+    "precedents": [
+      "country of origin information",
+      "return to Syria refugees"
+    ]
+  },
+  "spain-asylum-procedure-capacity": {
+    "literature": [
+      "asylum procedure duration Spain",
+      "Spain asylum system administrative capacity",
+      "asylum seekers Spain waiting appointment"
+    ],
+    "precedents": [
+      "asylum Spain procedure",
+      "Spain asylum system"
+    ]
+  },
+  "spain-arraigo-reform-implementation": {
+    "literature": [
+      "arraigo residence permit Spain reform",
+      "Spain regularisation irregular residence permit implementation",
+      "Spain immigration regulation reform 2024"
+    ],
+    "precedents": [
+      "arraigo Spain",
+      "Spain immigration law reform"
+    ]
+  },
+  "catalonia-language-integration": {
+    "literature": [
+      "Catalan language courses immigrants",
+      "language policy immigrant integration Catalonia",
+      "adult language learning newcomers evaluation"
+    ],
+    "precedents": [
+      "Catalan language immigrants",
+      "language courses migrants"
+    ]
+  },
+  "barcelona-saier-one-stop": {
+    "literature": [
+      "Barcelona immigration services municipal",
+      "one-stop shop immigrants municipal services",
+      "local migration governance Barcelona"
+    ],
+    "precedents": [
+      "Barcelona immigration municipal",
+      "one-stop shop migrants"
+    ]
+  },
+  "school-segregation-catalonia": {
+    "literature": [
+      "school segregation immigrant pupils Catalonia",
+      "ethnic school segregation Spain",
+      "school choice segregation immigrant background"
+    ],
+    "precedents": [
+      "school segregation Catalonia",
+      "immigrant pupils segregation"
+    ]
+  },
+  "housing-migrants-barcelona": {
+    "literature": [
+      "migrants housing Barcelona exclusion",
+      "housing discrimination immigrants Spain",
+      "housing policy irregular migrants"
+    ],
+    "precedents": [
+      "migrants housing Spain",
+      "housing exclusion immigrants"
+    ]
+  },
+  "local-voting-rights-third-country": {
+    "literature": [
+      "voting rights non-citizens local elections Europe",
+      "reciprocity local suffrage Spain foreign residents",
+      "non-citizen voting comparative"
+    ],
+    "precedents": [
+      "local voting rights foreign residents",
+      "non-citizen voting"
+    ]
+  },
+  "naturalisation-spain-comparison": {
+    "literature": [
+      "naturalisation policy comparison Europe",
+      "Spanish naturalisation residence requirement",
+      "citizenship tests naturalisation Germany Portugal"
+    ],
+    "precedents": [
+      "naturalisation policy",
+      "naturalisation Spain"
+    ]
+  },
+  "spain-portugal-regularisation-compare": {
+    "literature": [
+      "Spain Portugal regularisation immigration policy",
+      "Portugal immigrant regularisation manifestation of interest",
+      "Iberian immigration policy comparison"
+    ],
+    "precedents": [
+      "Portugal immigration policy",
+      "regularisation Southern Europe"
+    ]
+  },
+  "qualification-recognition-spain": {
+    "literature": [
+      "recognition of foreign qualifications Spain",
+      "credential recognition immigrants labour market",
+      "homologación títulos extranjeros"
+    ],
+    "precedents": [
+      "recognition foreign qualifications",
+      "immigrants credential recognition"
+    ]
+  },
+  "ingreso-minimo-vital-take-up": {
+    "literature": [
+      "Ingreso Mínimo Vital take-up",
+      "minimum income benefit immigrants Spain",
+      "non-take-up welfare benefits immigrants administrative burden"
+    ],
+    "precedents": [
+      "Ingreso Mínimo Vital",
+      "minimum income immigrants"
+    ]
+  },
+  "canary-balearic-regional-reception": {
+    "literature": [
+      "reception arrivals Canary Islands",
+      "Balearic Islands migration arrivals Algeria route",
+      "regional reception coordination Spain islands"
+    ],
+    "precedents": [
+      "Canary Islands reception",
+      "Balearic migration"
+    ]
+  },
+  "eu-return-regulation-process": {
+    "literature": [
+      "EU Return Directive reform proposal",
+      "return hubs European Union",
+      "EU return policy legislative negotiation"
+    ],
+    "precedents": [
+      "EU return policy",
+      "Return Directive"
+    ]
+  },
+  "eu-solidarity-mechanism-pledges": {
+    "literature": [
+      "EU solidarity mechanism asylum responsibility sharing",
+      "relocation solidarity member states pledges",
+      "Pact on Migration and Asylum solidarity"
+    ],
+    "precedents": [
+      "EU solidarity asylum",
+      "responsibility sharing European Union"
+    ]
   }
 }

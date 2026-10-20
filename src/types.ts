@@ -9,6 +9,8 @@ export type EvidenceStatus =
   | 'unverified'; // stated from background knowledge; verify before relying on it
 
 export type Level = 'local' | 'regional' | 'national' | 'eu' | 'international';
+export type Region = 'europe' | 'mena' | 'ssa' | 'latam' | 'northam' | 'asia' | 'oceania' | 'global';
+export type DocLang = 'es' | 'ca' | 'fr' | 'ar' | 'pt';
 export type FocusStage = 'design' | 'implementation' | 'evaluation';
 
 export interface Theme { id: string; label: string; blurb: string }
@@ -142,6 +144,10 @@ export interface Topic {
   claims: TopicClaim[];
   phrases: LabPhrases;
   lang: 'Catalan/Spanish sources useful' | 'English sources sufficient';
+  /** world regions the topic touches; 'global' marks multilateral or worldwide scope */
+  regions: Region[];
+  /** languages (besides English) in which key primary documents are mainly published; empty = English suffices */
+  docLangs: DocLang[];
 }
 
 // ---------- Orientation test ----------

@@ -5,10 +5,10 @@ import { useApp } from '@/store/useApp';
 import { useProfile, useRanking, useUiFlags } from '@/store/derived';
 import { TopicCard } from '@/components/TopicCard';
 import { Empty, Notice, PageHeader, SelectField } from '@/components/ui';
-import { METHODS, THEMES } from '@/data/taxonomy';
+import { METHODS, REGIONS, THEMES } from '@/data/taxonomy';
 import { FEEDBACK_LABEL } from '@/lib/recommend';
 import { topicById } from '@/data/topics';
-import type { Level } from '@/types';
+import type { Level, Region } from '@/types';
 
 type Sort = 'match' | 'workload' | 'policy';
 
@@ -29,7 +29,8 @@ export default function TopicsPage() {
   const theme = params.get('theme') ?? '';
   const method = params.get('method') ?? '';
   const level = (params.get('level') ?? '') as Level | '';
-  const set = (k: string, v: string) => { const p = new URLSearchParams(params); if (v) p.set(k, v); else p.delete(k); setParams(p, { replace: true }); };
+  const region = (params.get('region') ?? '') as Region | '';
+  const set = (k: string, v: string) => setParams((prev) => { const p = new URLSearchParams(prev); if (v) p.set(k, v); else p.delete(k); return p; }, { replace: true });
 
   const filtered = useMemo(() => {
     const needle = q.trim().toLowerCase();
@@ -39,9 +40,10 @@ export default function TopicsPage() {
       if (theme && !(t.themes[theme] >= 0.5)) return false;
       if (method && t.primaryMethod !== method && !t.secondaryMethods.includes(method)) return false;
       if (level && !t.levels.includes(level)) return false;
+      if (region && !t.regions.includes(region)) return false;
       return true;
     });
-  }, [ranking, q, theme, method, level]);
+  }, [ranking, q, theme, method, level, region]);
 
   const sorted = useMemo(() => {
     const arr = [...filtered];
@@ -52,7 +54,7 @@ export default function TopicsPage() {
 
   const active = sorted.filter((r) => !r.muted);
   const muted = sorted.filter((r) => r.muted);
-  const limit = focused && !showAll && !q && !theme && !method && !level ? 5 : active.length;
+  const limit = focused && !showAll && !q && !theme && !method && !level && !region ? 5 : active.length;
   const shown = active.slice(0, limit);
 
   return (
@@ -61,11 +63,12 @@ export default function TopicsPage() {
         {personalised ? 'Ranked by how well each topic matches your profile.' : 'Take the orientation test to rank these by fit. Until then every topic starts from the same neutral baseline.'} Every topic is a <strong>generated hypothesis</strong> to examine, not a confirmed gap in the literature.
       </PageHeader>
 
-      <form className="card mb-6 grid gap-4 p-4 sm:grid-cols-2 lg:grid-cols-5" role="search" aria-label="Filter topics" onSubmit={(e) => e.preventDefault()}>
+      <form className="card mb-6 grid gap-4 p-4 sm:grid-cols-2 lg:grid-cols-6" role="search" aria-label="Filter topics" onSubmit={(e) => e.preventDefault()}>
         <div className="space-y-1 lg:col-span-2"><label htmlFor="tq" className="block small font-medium">Search</label><input id="tq" className="field" value={q} onChange={(e) => set('q', e.target.value)} placeholder="Title, institution, place…" /></div>
         <SelectField label="Theme" value={theme} onChange={(v) => set('theme', v)} options={[{ value: '', label: 'Any theme' }, ...THEMES.map((t) => ({ value: t.id, label: t.label }))]} />
         <SelectField label="Method" value={method} onChange={(v) => set('method', v)} options={[{ value: '', label: 'Any method' }, ...METHODS.map((m) => ({ value: m.id, label: m.label }))]} />
         <SelectField label="Level" value={level} onChange={(v) => set('level', v)} options={[{ value: '', label: 'Any level' }, { value: 'local', label: 'Local' }, { value: 'regional', label: 'Regional' }, { value: 'national', label: 'National' }, { value: 'eu', label: 'EU' }, { value: 'international', label: 'International' }]} />
+        <SelectField label="World region" value={region} onChange={(v) => set('region', v)} options={[{ value: '', label: 'Any region' }, ...REGIONS.map((r) => ({ value: r.id, label: r.label }))]} />
       </form>
 
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
@@ -76,7 +79,7 @@ export default function TopicsPage() {
             <option value="match">Best match</option><option value="workload">Shortest workload</option><option value="policy">Policy relevance</option>
           </select>
           <button className="btn btn-sm" onClick={undo} disabled={!log.length}><Undo2 className="h-4 w-4" aria-hidden /> Undo last reaction</button>
-          {(q || theme || method || level) && <button className="btn btn-sm btn-ghost" onClick={() => setParams({}, { replace: true })}>Clear filters</button>}
+          {(q || theme || method || level || region) && <button className="btn btn-sm btn-ghost" onClick={() => setParams({}, { replace: true })}>Clear filters</button>}
         </div>
       </div>
 

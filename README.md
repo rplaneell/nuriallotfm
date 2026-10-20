@@ -2,7 +2,7 @@
 
 A local-first research and decision tool for choosing a master's thesis (TFM) topic in migration governance and connecting it to a first job. Built for Núria Llorens de la Cruz (UPF Master in Governance, Migration track).
 
-It combines: an adaptive orientation test, an interface-preference test that really changes the layout, a topic explorer (16 structured profiles), a world map, a career explorer, a topic laboratory, a feasibility evaluator and a comparison dashboard with sensitivity analysis. **Each topic also shows similar past master's theses and literature candidates retrieved from real repositories.**
+It combines: an adaptive orientation test, an interface-preference test that really changes the layout, a topic explorer (100 structured profiles, about three quarters of them international or intercontinental), a world map, a career explorer, a topic laboratory, a feasibility evaluator and a comparison dashboard with sensitivity analysis. **Each topic also shows similar past master's theses and literature candidates retrieved from real repositories.**
 
 ## Install and start
 
@@ -23,16 +23,16 @@ On a network that inspects TLS (corporate proxies), Node must trust the system c
 |---|---|
 | A. Orientation test | 6 stages, 37 questions defined (about 30 shown; follow-ups appear only when relevant): scenarios, follow-ups that appear only when relevant, a ranking built from your earlier picks, pairwise trade-offs, sliders, open reflection. Skip, "not sure" (half weight), revisit, edit. Result: explainable profile with strength labels (strong, moderate, tentative), the answers behind each score, preference conflicts, uncertainties, 3 to 5 research directions. Editable. |
 | B. How do you want to explore? | Seven modes (combinable) plus detail, breadth and format. Changes navigation order, Home content, default topic tab and card density. "Complete overview" and reset available in Settings. Kept separate from research interests. |
-| C. Topic explorer | 16 profiles with all 22 required fields, filters, ranking by profile, per-topic "why recommended", reactions (9 kinds) with undo and "set aside, restore". |
+| C. Topic explorer | 100 profiles with all required fields, world region and language fields, filters (including world region), ranking by profile, per-topic "why recommended", reactions (9 kinds) with undo and "set aside, restore". |
 | D. Map | Leaflet + OpenStreetMap tiles, Natural Earth boundaries. 28 curated places. Filters by theme, level, method, actor, data availability, topic feasibility. Context panel, saved places, descriptive two-place comparison. |
-| E. Careers | 13 role families both ways (role to topics, topic to roles), portfolio outputs, official careers links with link status. No vacancies are listed. |
+| E. Careers | 16 role families both ways (role to topics, topic to roles), portfolio outputs, official careers links with link status. No vacancies are listed. |
 | F/G. Feasibility and lab | 13 criteria, configurable importance, uncertainty band. Lab: scope, level, cases, breadth, focus, method, academic/practical, technical ambition, data load, population, career. Every change updates the question, method, evidence list, workload and scores with written reasons. Ambitious / balanced / lower-risk versions. Edit the question yourself. |
 | H. Dashboard | Shortlist, side-by-side matrix, weights with live re-ranking, 600-scenario sensitivity analysis, adjustable work plan (you enter confirmed dates), notes, open questions. Export Markdown, CSV, print-friendly HTML, full JSON backup with validated restore. |
 | J. Evidence | Source registry with link status and recheck, DOI check against Crossref, duplicate grouping, status labels on every item. |
 
 ## Past theses from similar programmes
 
-Source: public repository APIs, retrieved on **2026-10-19** and bundled as `src/data/precedents.snapshot.json` (87 master-level theses across the 16 topics):
+Source: public repository APIs, retrieved on **2026-10-19** and bundled as `src/data/precedents.snapshot.json` (87 master-level theses across the original 16 topics; the 84 later topics show "snapshot not yet fetched" until `npm run snapshot:precedents -- --missing` is run):
 
 - UPF e-repository (DSpace 7): the political and social sciences master collection (the department behind the Master in Governance) and IBEI master theses.
 - Utrecht University student theses (DSpace 7).
@@ -79,7 +79,7 @@ Bugs found by these tests and fixed: Notes tab crashed from an unstable store se
 
 ## Extending
 
-- Add a topic: `src/data/topics-a.ts` / `topics-b.ts` (`mk({...})`), add its search terms to `src/data/queries.json`, run both snapshot scripts. `npm test` checks every id resolves.
+- Add a topic: the original 16 live in `src/data/topics-a.ts` / `topics-b.ts` (`mk({...})`); newer ones use the compact `lite({...})` format in `topics-global.ts`, `topics-africa-mena.ts`, `topics-americas-oceania.ts`, `topics-asia-gulf.ts` and `topics-europe-spain.ts`. Add its search terms to `src/data/queries.json`, then run `npm run snapshot:literature -- --missing` and `npm run snapshot:precedents -- --missing` (they fetch only topics without an entry and keep existing retrieval dates). `npm test` checks every id resolves.
 - Add a question: `src/data/questions.ts` (weights keys documented at the top; follow-ups use `showIf`).
 - Add a source or role: `src/data/sources.ts`, `src/data/careers.ts`, then `npm run check:links`.
 - Add a repository: an adapter in `server/adapters.mjs` (DSpace 7 sources are one entry).

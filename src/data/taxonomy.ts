@@ -1,4 +1,4 @@
-import type { Approach, Criterion, Method, Theme, Theory } from '@/types';
+import type { Approach, Criterion, DocLang, Method, Region, Theme, Theory } from '@/types';
 
 export const THEMES: Theme[] = [
   { id: 'governance', label: 'Migration governance', blurb: 'Who decides, coordinates and delivers migration policy.' },
@@ -20,6 +20,13 @@ export const THEMES: Theme[] = [
   { id: 'capacity', label: 'Administrative capacity and coordination', blurb: 'Resources, staffing and inter-institutional coordination.' },
   { id: 'evaluation', label: 'Policy evaluation and public-sector effectiveness', blurb: 'Does it work, for whom, and how would we know.' },
   { id: 'discretion', label: 'Bureaucratic discretion and unequal outcomes', blurb: 'Street-level choices that shape who gets what.' },
+  { id: 'globalgov', label: 'Global migration governance', blurb: 'UN compacts, multilateral bodies and how global norms reach states.' },
+  { id: 'displacement', label: 'Refugee protection and displacement beyond Europe', blurb: 'Hosting, camps, settlements and rights in the Global South.' },
+  { id: 'diaspora', label: 'Diaspora, remittances and origin-state policy', blurb: 'How countries of origin engage their citizens abroad.' },
+  { id: 'regionalism', label: 'Regional mobility regimes', blurb: 'Free movement and residence agreements in Africa, the Americas and Asia.' },
+  { id: 'trafficking', label: 'Trafficking, smuggling and exploitation', blurb: 'Criminal law, victim protection and labour exploitation.' },
+  { id: 'digital', label: 'Technology, data and digital borders', blurb: 'Biometrics, databases and automated decisions in migration systems.' },
+  { id: 'returns', label: 'Return, readmission and detention', blurb: 'Removal, readmission agreements and immigration detention.' },
 ];
 
 export const APPROACHES: Approach[] = [
@@ -33,6 +40,24 @@ export const APPROACHES: Approach[] = [
   { id: 'recommend', label: 'Design practical policy recommendations', blurb: 'Actionable advice for public bodies.' },
   { id: 'tools', label: 'Develop tools for public-sector decisions', blurb: 'Dashboards, frameworks, indicators.' },
   { id: 'effects', label: 'Investigate effects on different populations', blurb: 'Who gains and who loses.' },
+  { id: 'diffusion', label: 'Trace how policies and norms travel across borders', blurb: 'Policy transfer, diffusion and contested international norms.' },
+];
+
+export const REGIONS: { id: Region; label: string }[] = [
+  { id: 'europe', label: 'Europe (EU and neighbours)' },
+  { id: 'mena', label: 'Middle East and North Africa' },
+  { id: 'ssa', label: 'Sub-Saharan Africa' },
+  { id: 'latam', label: 'Latin America and the Caribbean' },
+  { id: 'northam', label: 'North America' },
+  { id: 'asia', label: 'Asia (South, Southeast and East)' },
+  { id: 'oceania', label: 'Oceania and the Pacific' },
+  { id: 'global', label: 'Global or multilateral' },
+];
+export const regionLabel = (id: string) => REGIONS.find((r) => r.id === id)?.label ?? id;
+
+/** Languages besides English in which primary documents are mainly published. */
+export const DOC_LANGS: { id: DocLang; label: string }[] = [
+  { id: 'es', label: 'Spanish' }, { id: 'ca', label: 'Catalan' }, { id: 'fr', label: 'French' }, { id: 'ar', label: 'Arabic' }, { id: 'pt', label: 'Portuguese' },
 ];
 
 export const METHOD_IDS = [
@@ -93,6 +118,15 @@ export const THEORIES: Theory[] = [
   { id: 'inter', label: 'Intersectionality', idea: 'Gender, race, class and status combine to produce distinct disadvantages.', origin: 'Crenshaw (1989); McCall (2005)', searchQuery: 'intersectionality migration policy' },
   { id: 'welfare', label: 'Welfare chauvinism / deservingness', idea: 'Who is treated as deserving of public support.', origin: 'van Oorschot; Andersen & Bjørklund', searchQuery: 'deservingness welfare immigrants' },
   { id: 'evalth', label: 'Theory-based evaluation', idea: 'Test the causal chain a programme assumes (theory of change; contribution analysis).', origin: 'Weiss; Pawson & Tilley; Mayne', searchQuery: 'theory-based evaluation integration programmes' },
+  { id: 'transnational', label: 'Transnationalism and diaspora institutions', idea: 'Migrants keep ties across borders, and origin states build institutions to engage them.', origin: 'Glick Schiller, Basch & Szanton Blanc (1992); Gamlen on diaspora institutions', searchQuery: 'diaspora engagement policies emigration states' },
+  { id: 'regimecx', label: 'Refugee regime complex', idea: 'Refugee protection is governed by overlapping, partly competing institutions rather than one regime.', origin: 'Betts (2010)', searchQuery: 'refugee regime complex' },
+  { id: 'diffusion', label: 'Policy diffusion and transfer', idea: 'Policies spread through learning, competition, coercion and emulation between governments.', origin: 'Dolowitz & Marsh (2000); Simmons, Dobbin & Garrett (2006)', searchQuery: 'policy diffusion migration policy' },
+  { id: 'norms', label: 'International norm dynamics', idea: 'Norms emerge, spread and are contested or localised by states and advocacy networks.', origin: 'Finnemore & Sikkink (1998)', searchQuery: 'international norms migration governance localisation' },
+  { id: 'migdip', label: 'Migration diplomacy and coercive engineered migration', idea: 'States use migration flows and cooperation as bargaining tools in foreign policy.', origin: 'Greenhill (2010); Adamson & Tsourapas (2019)', searchQuery: 'migration diplomacy' },
+  { id: 'bordering', label: 'Everyday bordering', idea: 'Borders are reproduced inside states through document checks, services and employers.', origin: 'Yuval-Davis, Wemyss & Cassidy (2018)', searchQuery: 'everyday bordering' },
+  { id: 'devnexus', label: 'Migration and development nexus', idea: 'Development changes migration in non-linear ways, and migration affects development through remittances and skills.', origin: 'de Haas (2010)', searchQuery: 'migration and development nexus theory' },
+  { id: 'dualmarket', label: 'Dual labour markets and migrant labour regimes', idea: 'Segmented labour markets generate demand for migrant workers in insecure jobs, and legal status structures their bargaining power.', origin: 'Piore (1979); Anderson on migrant labour regimes', searchQuery: 'migrant labour regimes precarity' },
+  { id: 'citregime', label: 'Citizenship regimes', idea: 'National traditions and politics shape who can acquire formal membership and on what terms.', origin: 'Brubaker (1992); Joppke', searchQuery: 'citizenship regimes naturalisation policy comparison' },
   { id: 'climateth', label: 'Climate mobility and protection gaps', idea: 'Existing legal categories rarely fit environmentally driven movement.', origin: 'Kälin; McAdam', searchQuery: 'climate displacement protection gap' },
 ];
 

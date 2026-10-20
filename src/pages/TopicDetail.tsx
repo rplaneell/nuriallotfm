@@ -9,11 +9,11 @@ import { useFeedbackMap, useTopicView, useUiFlags } from '@/store/derived';
 import { FeedbackBar } from '@/components/TopicCard';
 import { TopicLab } from '@/components/TopicLab';
 import { Disclosure, Empty, EvidenceBadge, Meter, Notice, PageHeader, Tab, TabList, TabPanel, Tabs, toneFor } from '@/components/ui';
-import { methodById, theoryById } from '@/data/taxonomy';
+import { DOC_LANGS, methodById, regionLabel, theoryById } from '@/data/taxonomy';
 import { sourceById } from '@/data/sources';
 import { outputById, roleById } from '@/data/careers';
 import { placeById } from '@/data/places';
-import { linkInfo, literatureFor, literatureMeta, manualSearchLinks, precedentMeta, precedentsFor, workKind } from '@/lib/evidence';
+import { linkInfo, literatureFetched, literatureFor, precedentsFetched, literatureMeta, manualSearchLinks, precedentMeta, precedentsFor, workKind } from '@/lib/evidence';
 import { strongestAndWeakest } from '@/lib/feasibility';
 import type { ExploreMode } from '@/types';
 
@@ -71,6 +71,8 @@ export default function TopicDetail() {
                     <dl className="grid gap-x-6 gap-y-2 small sm:grid-cols-[10rem_1fr]">
                       <dt className="text-muted">Geography</dt><dd>{topic.geography}</dd>
                       <dt className="text-muted">Levels</dt><dd>{topic.levels.join(', ')}</dd>
+                      <dt className="text-muted">World regions</dt><dd>{topic.regions.map(regionLabel).join(', ')}</dd>
+                      <dt className="text-muted">Documents mainly in</dt><dd>{topic.docLangs.length ? `English plus ${topic.docLangs.map((l) => DOC_LANGS.find((x) => x.id === l)?.label ?? l).join(', ')}` : 'English suffices'}</dd>
                       <dt className="text-muted">Institutions</dt><dd>{topic.institutions.join('; ')}</dd>
                       <dt className="text-muted">Time period</dt><dd>{topic.timePeriod}</dd>
                       <dt className="text-muted">Outcomes</dt><dd>{topic.dimensions.join('; ')}</dd>
@@ -149,7 +151,7 @@ function EvidenceTab({ topicId }: { topicId: string }) {
         <Notice tone="warn" title="How to read this list">
           <p>Metadata from OpenAlex, retrieved {literatureMeta.retrievedAt}. Each record exists in that index, but relevance was <strong>not</strong> checked by a person and abstracts have not been read in full. “Journal article” means the venue is a journal, not that peer review is confirmed. A thin list here is not evidence of a research gap.</p>
         </Notice>
-        {groups.length === 0 ? <div className="mt-4"><Empty title="No literature retrieved for this topic">Use the search links below to search manually.</Empty></div> : (
+        {groups.length === 0 ? <div className="mt-4"><Empty title={literatureFetched(topicId) ? 'No literature retrieved for this topic' : 'Literature snapshot not yet fetched for this topic'}>{literatureFetched(topicId) ? 'Use the search links below to search manually.' : 'This topic was added after the last literature snapshot, so nothing is shown here and that says nothing about the literature. Use the live search or the manual links below, or run npm run snapshot:literature -- --missing.'}</Empty></div> : (
           <ul className="mt-4 space-y-4">
             {groups.map((g) => { const w = g.primary; return (
               <li key={w.openalexId} className="card p-4">
@@ -204,7 +206,7 @@ function PrecedentsTab({ topicId, rq }: { topicId: string; rq: string }) {
       <Notice title="Past master’s theses on similar questions">
         <p>Retrieved {precedentMeta.retrievedAt} from UPF’s e-repository (including IBEI programmes), Utrecht University and Swedish university repositories (DiVA). Coverage is partial: repositories hold only deposited theses, and UPF holds few. Overlap with your question is a rough word-overlap signal. Read the thesis before judging.</p>
       </Notice>
-      {items.length === 0 ? <Empty title="No past theses were retrieved for this topic">Try the live search below or the manual links.</Empty> : (
+      {items.length === 0 ? <Empty title={precedentsFetched(topicId) ? 'No past theses were retrieved for this topic' : 'Past thesis snapshot not yet fetched for this topic'}>{precedentsFetched(topicId) ? 'Try the live search below or the manual links.' : 'This topic was added after the last repository snapshot, so an empty list says nothing about past theses. Try the live search below or the manual links, or run npm run snapshot:precedents -- --missing.'}</Empty> : (
         <ul className="space-y-4">
           {items.map((p) => (
             <li key={p.id} className="card p-4">

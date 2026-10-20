@@ -3,7 +3,12 @@
 import fs from 'node:fs';
 import { DSPACE_SOURCES, DIVA_SOURCES, searchDSpace, searchDiva, sleep } from '../server/adapters.mjs';
 
-const queries = JSON.parse(fs.readFileSync('src/data/queries.json', 'utf8'));
+// `--missing` keeps the existing snapshot and fetches only topics that have no entry yet.
+const MISSING_ONLY = process.argv.includes('--missing');
+const SNAP = 'src/data/precedents.snapshot.json';
+const prev = MISSING_ONLY && fs.existsSync(SNAP) ? JSON.parse(fs.readFileSync(SNAP, 'utf8')) : null;
+const allQueries = JSON.parse(fs.readFileSync('src/data/queries.json', 'utf8'));
+const queries = prev ? Object.fromEntries(Object.entries(allQueries).filter(([id]) => !(id in prev.byTopic))) : allQueries;
 const byKey = new Map();
 const log = [];
 const errors = [];
@@ -70,6 +75,25 @@ for (const [topicId, q] of Object.entries(queries)) {
   for (const x of chosen) keep.set(x.it.id, x.it);
 }
 const items = [...keep.values()].map(({ queriedFor, ...rest }) => ({ ...rest, topicIds: [...new Set(queriedFor.map((x) => x.topicId))].filter((t) => perTopic[t]?.some((y) => y.id === rest.id)) }));
+if (prev) {
+  // Re-id new items after the existing ones; reuse an existing item when the URL is already known.
+  const byUrl = new Map(prev.items.map((i) => [(i.url || i.title).toLowerCase(), i]));
+  let next = Math.max(0, ...prev.items.map((i) => Number(String(i.id).slice(1)) || 0)) + 1;
+  const remap = {};
+  for (const it of items) {
+    const known = byUrl.get((it.url || it.title).toLowerCase());
+    if (known) { known.topicIds = [...new Set([...known.topicIds, ...it.topicIds])]; remap[it.id] = known.id; continue; }
+    remap[it.id] = 'p' + next++;
+    prev.items.push({ ...it, id: remap[it.id] });
+  }
+  for (const [t, list] of Object.entries(perTopic)) prev.byTopic[t] = list.map((x) => ({ ...x, id: remap[x.id] ?? x.id }));
+  prev.errors = [...(prev.errors ?? []), ...errors];
+  prev.log = [...(prev.log ?? []), ...log];
+  prev.addedMissingOn = new Date().toISOString().slice(0, 10);
+  fs.writeFileSync(SNAP, JSON.stringify(prev, null, 1));
+  console.log(`merged ${items.length} items for ${Object.keys(perTopic).length} new topics; ${errors.length} errors`);
+  process.exit(0);
+}
 const out = {
   retrievedAt: new Date().toISOString().slice(0, 10),
   method: 'Public repository APIs (DSpace 7 REST, DiVA CSV export), master-level items only. Relevance = overlap with topic search terms (title x2, abstract/keywords x1); not human-vetted.',

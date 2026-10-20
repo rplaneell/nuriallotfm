@@ -1,6 +1,6 @@
 import type { FeedbackEvent, FeedbackTag, Profile, Topic } from '@/types';
 import { TOPICS } from '@/data/topics';
-import { THEMES, methodById } from '@/data/taxonomy';
+import { DOC_LANGS, THEMES, methodById, regionLabel } from '@/data/taxonomy';
 import { approachMatch, careerMatch, hasProfile, themeMatch } from './feasibility';
 import { biValue, dimScore } from './profile';
 
@@ -51,13 +51,27 @@ function topThemeLabels(topic: Topic, profile: Profile, n = 2) {
     .slice(0, n);
 }
 
+/** Region fit: neutral (0.5) until the region question has been answered, then the best match among the topic's regions. */
+export function regionMatch(topic: Topic, profile: Profile): number {
+  const keys = Object.keys(profile.dims).filter((k) => k.startsWith('r.'));
+  if (!keys.some((k) => profile.dims[k].score > 0)) return 0.5;
+  return Math.max(0, ...topic.regions.map((r) => dimScore(profile, `r.${r}`)));
+}
+
+/** Language fit: 1 when English suffices; otherwise a floor of 0.4 (English versions often exist) rising with the languages you can read. Neutral 0.7 until asked. */
+export function languageMatch(topic: Topic, profile: Profile): number {
+  if (topic.docLangs.length === 0) return 1;
+  if (!Object.keys(profile.dims).some((k) => k.startsWith('l.'))) return 0.7;
+  return topic.docLangs.reduce((s, l) => s + 0.4 + 0.6 * dimScore(profile, `l.${l}`), 0) / topic.docLangs.length;
+}
+
 function scopeMatch(topic: Topic, profile: Profile): number {
   const lv: Record<string, string> = { local: 's.local', regional: 's.regional', national: 's.national', eu: 's.eu', international: 's.intl' };
   const levelScore = Math.max(0, ...topic.levels.map((l) => dimScore(profile, lv[l])));
   const design = topic.comparative ? dimScore(profile, 's.comparative') : dimScore(profile, 's.single');
   const ambition = biValue(profile, 'b.ambition');
   const techFit = 1 - Math.abs((topic.technical - 1) / 4 - ambition / 100) * 0.8;
-  return levelScore * 0.4 + design * 0.2 + techFit * 0.4;
+  return levelScore * 0.3 + design * 0.15 + techFit * 0.3 + regionMatch(topic, profile) * 0.15 + languageMatch(topic, profile) * 0.1;
 }
 
 function methodMatch(topic: Topic, profile: Profile): number {
@@ -134,6 +148,9 @@ export function rankTopics(profile: Profile, feedbackLog: FeedbackEvent[], pinne
       else if (m && me < 0.2) reasons.push(`Main method (${m.label.toLowerCase()}) is not among your stated interests. Check the learning needs.`);
       if (ca > 0.5) reasons.push('Supports role families in the work environments you rated.');
       if (sc > 0.55) reasons.push('Scope and technical level are close to what you prefer.');
+      const rm = regionMatch(topic, profile);
+      if (rm > 0.5) reasons.push(`Touches ${topic.regions.filter((r) => dimScore(profile, `r.${r}`) > 0.2).map(regionLabel).join(' and ').toLowerCase() || 'a region you chose'}, a part of the world you chose.`);
+      if (topic.docLangs.length && languageMatch(topic, profile) < 0.55 && Object.keys(profile.dims).some((k) => k.startsWith('l.'))) reasons.push(`Primary documents are mainly in ${topic.docLangs.map((l) => DOC_LANGS.find((x) => x.id === l)?.label ?? l).join(' and ')}, which you did not tick. English versions may exist; check before committing.`);
     } else reasons.push('Take the orientation test to personalise this ranking. Currently every topic starts from a neutral baseline.');
 
     return { topic, score, base, parts, reasons, effects, tags, muted: tags.includes('notForMe') };

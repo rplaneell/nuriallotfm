@@ -185,10 +185,14 @@ function BipolarRow({ dim, lab, profile, editing }: { dim: string; lab: { name: 
 function ScopeSummary({ profile }: { profile: Profile }) {
   const lv = topDims(profile, 's.', 8, 0.2).filter((d) => ['s.local', 's.regional', 's.national', 's.eu', 's.intl'].includes(d.id));
   const ds = topDims(profile, 's.', 8, 0.2).filter((d) => !['s.local', 's.regional', 's.national', 's.eu', 's.intl'].includes(d.id));
-  if (!lv.length && !ds.length) return null;
+  const rg = topDims(profile, 'r.', 4, 0.2);
+  const lg = topDims(profile, 'l.', 5, 0.2);
+  if (!lv.length && !ds.length && !rg.length && !lg.length) return null;
   return (
     <div className="mt-5 rule-t pt-4 small">
       {lv.length > 0 && <p><span className="font-medium">Levels: </span>{lv.map((d) => DIM_LABELS[d.id]).join(', ')}</p>}
+      {rg.length > 0 && <p><span className="font-medium">World regions: </span>{rg.map((d) => DIM_LABELS[d.id]).join(', ')}</p>}
+      {lg.length > 0 && <p><span className="font-medium">Documents you can read besides English: </span>{lg.map((d) => DIM_LABELS[d.id].replace(' documents', '')).join(', ')}</p>}
       {ds.length > 0 && <p><span className="font-medium">Design and question type: </span>{ds.map((d) => DIM_LABELS[d.id]).join(', ')}</p>}
       <p className="mt-2 text-muted">Local work gives access to concrete practice. EU and international work needs more legal background and often more travel. Comparison multiplies the reading per case.</p>
     </div>

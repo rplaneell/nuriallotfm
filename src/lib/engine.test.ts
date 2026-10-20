@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import type { Answers, FeedbackEvent } from '@/types';
 import { computeProfile, findTensions, progress } from './profile';
 import { QUESTIONS, visibleQuestions, optionsFor } from '@/data/questions';
-import { activeFeedback, rankTopics } from './recommend';
+import { activeFeedback, languageMatch, rankTopics, regionMatch } from './recommend';
 import { TOPICS } from '@/data/topics';
 import { applyLab, defaultLab, presetFor } from './lab';
 import { overall, scoreCriteria } from './feasibility';
@@ -94,7 +94,9 @@ describe('recommendations', () => {
     const topA = a.slice(0, 3).map((r) => r.topic.id);
     const topB = b.slice(0, 3).map((r) => r.topic.id);
     expect(topA).toContain('municipal-integration-catalonia');
-    expect(topB).toContain('eu-pact-implementation');
+    // with 100 topics, closer matches (solidarity, EU Turkey, visa leverage) may outrank the Pact; it must stay in the top 15 and the top 10 must be EU or externalisation themed
+    expect(b.slice(0, 15).map((r) => r.topic.id)).toContain('eu-pact-implementation');
+    expect(b.slice(0, 10).filter((r) => (r.topic.themes.eu ?? 0) >= 0.4 || (r.topic.themes.externalisation ?? 0) >= 0.4).length).toBeGreaterThanOrEqual(7);
     expect(topA).not.toEqual(topB);
   });
 
@@ -312,5 +314,103 @@ describe('content integrity', () => {
       expect(methodById(t.primaryMethod), `${t.id} method`).toBeDefined();
       for (const m of t.secondaryMethods) expect(methodById(m), `${t.id} method ${m}`).toBeDefined();
     }
+  });
+});
+
+const OLD_IDS = new Set(['eu-pact-implementation', 'municipal-integration-catalonia', 'padron-access-rights', 'regularisation-effects', 'evaluating-integration-programmes', 'reception-system-governance', 'temporary-protection-comparison', 'externalisation-mediterranean', 'discourse-and-policy', 'bureaucratic-discretion-appointments', 'labour-migration-pathways', 'gender-domestic-work', 'climate-mobility-governance', 'unaccompanied-minors-distribution', 'multilevel-competences-catalonia', 'geospatial-service-access']);
+
+describe('international coverage and the new test dimensions', () => {
+  it('has about 100 unique topics with a substantial international and intercontinental share', () => {
+    expect(TOPICS.length).toBeGreaterThanOrEqual(100);
+    expect(new Set(TOPICS.map((t) => t.id)).size).toBe(TOPICS.length);
+    const intl = TOPICS.filter((t) => t.levels.includes('international'));
+    expect(intl.length).toBeGreaterThanOrEqual(40);
+    const regionsCovered = new Set(TOPICS.flatMap((t) => t.regions));
+    for (const r of ['europe', 'mena', 'ssa', 'latam', 'northam', 'asia', 'oceania', 'global'] as const) expect(regionsCovered.has(r), `region ${r}`).toBe(true);
+    // intercontinental: topics that tie Europe to at least one other region, or compare two non-European regions
+    const inter = TOPICS.filter((t) => new Set(t.regions.filter((r) => r !== 'global')).size >= 2);
+    expect(inter.length).toBeGreaterThanOrEqual(30);
+  });
+
+  it('every topic has consistent regions, languages, themes, approaches and scores', async () => {
+    const { THEMES, APPROACHES, REGIONS, DOC_LANGS } = await import('@/data/taxonomy');
+    for (const t of TOPICS) {
+      expect(t.regions.length, `${t.id} regions`).toBeGreaterThan(0);
+      for (const r of t.regions) expect(REGIONS.some((x) => x.id === r), `${t.id} region ${r}`).toBe(true);
+      for (const l of t.docLangs) expect(DOC_LANGS.some((x) => x.id === l), `${t.id} lang ${l}`).toBe(true);
+      if (t.levels.includes('international')) expect(t.regions.some((r) => r !== 'europe') || t.regions.length > 1, `${t.id} international but only Europe`).toBe(true);
+      for (const [k, v] of Object.entries(t.themes)) { expect(THEMES.some((x) => x.id === k), `${t.id} theme ${k}`).toBe(true); expect(v).toBeGreaterThan(0); expect(v).toBeLessThanOrEqual(1); }
+      for (const [k, v] of Object.entries(t.approaches)) { expect(APPROACHES.some((x) => x.id === k), `${t.id} approach ${k}`).toBe(true); expect(v).toBeGreaterThan(0); expect(v).toBeLessThanOrEqual(1); }
+      for (const [k, c] of Object.entries(t.criteria)) { expect(c.score, `${t.id} ${k}`).toBeGreaterThanOrEqual(1); expect(c.score).toBeLessThanOrEqual(5); expect(c.why.length, `${t.id} ${k} why`).toBeGreaterThan(OLD_IDS.has(t.id) ? 3 : 10); }
+      for (const c of t.claims) { expect(c.status).toBe('unverified'); expect(c.check?.length ?? 0, `${t.id} claim check`).toBeGreaterThan(10); }
+      expect(t.rq.trim().endsWith('?'), `${t.id} rq is a question`).toBe(true);
+      expect(Object.keys(t.themes).length).toBeGreaterThan(1);
+    }
+  });
+
+  it('new topics carry no invented numbers or research-gap claims in their text', () => {
+    const gap = /\b(no (one|study|research) has|first study|unexplored|has never been|gap in the literature)\b/i;
+    for (const t of TOPICS) {
+      const text = [t.problem, t.contribution, t.tagline, ...t.hypotheses].join(' ');
+      expect(gap.test(text), `${t.id} claims a gap`).toBe(false);
+    }
+  });
+
+  it('every topic has search queries and every query set belongs to a topic', async () => {
+    const queries = (await import('@/data/queries.json')).default as Record<string, { literature: string[]; precedents: string[] }>;
+    for (const t of TOPICS) { expect(queries[t.id], `${t.id} queries`).toBeDefined(); expect(queries[t.id].literature.length).toBeGreaterThanOrEqual(2); expect(queries[t.id].precedents.length).toBeGreaterThanOrEqual(2); }
+    for (const id of Object.keys(queries)) expect(TOPICS.some((t) => t.id === id), `orphan queries ${id}`).toBe(true);
+  });
+
+  it('places resolve their sources and country codes are unique', async () => {
+    const { PLACES } = await import('@/data/places'); const { sourceById } = await import('@/data/sources');
+    for (const p of PLACES) for (const s of p.sourceIds) expect(sourceById(s), `${p.id} source ${s}`).toBeDefined();
+    const iso = PLACES.filter((p) => p.iso2).map((p) => p.iso2);
+    expect(new Set(iso).size).toBe(iso.length);
+    const geo = (await import('@/data/countries.geo.json')).default as { features: { properties: { iso2: string } }[] };
+    const geoIso = new Set(geo.features.map((f) => f.properties.iso2));
+    const missing = iso.filter((c) => !geoIso.has(c!));
+    expect(missing, 'iso2 codes missing from the map file').toEqual([]);
+  });
+
+  it('region answers raise topics in that region and stay neutral when unanswered', () => {
+    const latam = TOPICS.find((t) => t.id === 'venezuelan-regularisation-latam')!;
+    const eu = TOPICS.find((t) => t.id === 'eu-pact-implementation')!;
+    const none = computeProfile({});
+    expect(regionMatch(latam, none)).toBe(0.5);
+    const p = computeProfile(ans({ 'q6-region': ['latam'] }));
+    expect(regionMatch(latam, p)).toBeGreaterThan(regionMatch(eu, p));
+    expect(regionMatch(latam, p)).toBeGreaterThan(0.5);
+  });
+
+  it('language answers lower the fit only slightly for documents you cannot read', () => {
+    const fr = TOPICS.find((t) => t.id === 'ecowas-free-movement-gaps')!;
+    const en = TOPICS.find((t) => t.id === 'eu-pact-implementation')!;
+    expect(languageMatch(en, computeProfile({}))).toBe(1);
+    expect(languageMatch(fr, computeProfile({}))).toBeCloseTo(0.7);
+    const can = computeProfile(ans({ 'q6-lang': ['fr'] })); const cannot = computeProfile(ans({ 'q6-lang': ['pt'] }));
+    expect(languageMatch(fr, can)).toBeGreaterThan(languageMatch(fr, cannot));
+    expect(languageMatch(fr, cannot)).toBeGreaterThanOrEqual(0.4);
+    expect(languageMatch(en, cannot)).toBe(1);
+  });
+
+  it('the international questions exist and feed the profile', () => {
+    const ids = visibleQuestions({}).map((q) => q.id);
+    for (const id of ['q6-region', 'q6-lang', 'q2-pair4']) expect(ids).toContain(id);
+    const p = computeProfile(ans({ 'q1-pick': ['sc-host'], 'q1-why-sc-host': 'm-eval', 'q6-level': ['lv-intl'], 'q6-region': ['ssa', 'mena'] }));
+    expect(p.dims['t.displacement'].score).toBeGreaterThan(0);
+    expect(p.dims['r.ssa'].score).toBeGreaterThan(0);
+    expect(p.dims['s.intl'].score).toBeGreaterThan(0);
+  });
+
+  it('a profile drawn to displacement and Africa ranks international topics above Spain only ones', () => {
+    const p = computeProfile(ans({
+      'q1-pick': ['sc-host', 'sc-bloc'], 'q1-why-sc-host': 'm-eval', 'q1-why-sc-bloc': 'm-comp',
+      'q2-pick': ['displacement', 'regionalism', 'development'], 'q2-pair4': 'p4a', 'q6-level': ['lv-intl'], 'q6-region': ['ssa'], 'q6-lang': ['fr'], 'q4-int': ['documents', 'comparative'], 'q5-days': ['io', 'coop'],
+    }));
+    const top = rankTopics(p, []).slice(0, 8);
+    const africa = top.filter((r) => r.topic.regions.includes('ssa'));
+    expect(africa.length).toBeGreaterThanOrEqual(4);
+    expect(top[0].topic.levels).toContain('international');
   });
 });

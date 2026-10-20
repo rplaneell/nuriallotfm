@@ -115,7 +115,7 @@ export default function MapPage() {
               )}
               <GeoJSON key={`${selectedId}-${visible.length}-${filtersActive}-${tiles}`} data={geo as never} style={countryStyle as never}
                 onEachFeature={(f, layer) => { const iso = (f.properties as { iso2?: string }).iso2; const p = iso ? PLACE_BY_ISO.get(iso) : undefined; if (iso && iso !== '-99') layer.on('click', () => select(p ? p.id : `iso:${iso}`)); }} />
-              {visible.filter((p) => p.kind !== 'country').map((p) => (
+              {visible.filter((p) => p.kind !== 'country' || !p.iso2).map((p) => (
                 <CircleMarker key={p.id} center={[p.lat, p.lng]} radius={p.id === selectedId ? 11 : p.kind === 'municipality' || p.kind === 'site' ? 6 : 8}
                   pathOptions={{ color: '#a23b2a', fillColor: savedPlaces.includes(p.id) ? '#c9a227' : '#a23b2a', fillOpacity: 0.85, weight: p.id === selectedId ? 3 : 1 }}
                   eventHandlers={{ click: () => select(p.id) }}>

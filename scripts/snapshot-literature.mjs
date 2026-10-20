@@ -3,12 +3,17 @@
 import fs from 'node:fs';
 import { searchOpenAlex, sleep } from '../server/adapters.mjs';
 
+// `--missing` keeps the existing snapshot (and its retrieval dates) and fetches only topics that have no entry yet.
+const MISSING_ONLY = process.argv.includes('--missing');
+const SNAP = 'src/data/literature.snapshot.json';
+const prev = MISSING_ONLY && fs.existsSync(SNAP) ? JSON.parse(fs.readFileSync(SNAP, 'utf8')) : null;
 const queries = JSON.parse(fs.readFileSync('src/data/queries.json', 'utf8'));
-const works = new Map();
-const byTopic = {};
-const errors = [];
+const works = new Map(prev ? Object.entries(prev.works) : []);
+const byTopic = prev ? { ...prev.byTopic } : {};
+const errors = prev ? [...(prev.errors ?? [])] : [];
 
 for (const [topicId, q] of Object.entries(queries)) {
+  if (prev && byTopic[topicId]) continue;
   byTopic[topicId] = [];
   for (const term of q.literature) {
     for (const recent of [false, true]) {
@@ -25,6 +30,7 @@ for (const [topicId, q] of Object.entries(queries)) {
   }
   console.log('done', topicId, byTopic[topicId].length);
 }
-const out = { retrievedAt: new Date().toISOString().slice(0, 10), method: 'OpenAlex works search restricted to Social Sciences field; metadata as returned by OpenAlex. Topical relevance is NOT human-vetted.', works: Object.fromEntries(works), byTopic, errors };
-fs.writeFileSync('src/data/literature.snapshot.json', JSON.stringify(out, null, 1));
+const out = { retrievedAt: prev ? prev.retrievedAt : new Date().toISOString().slice(0, 10), method: 'OpenAlex works search restricted to Social Sciences field; metadata as returned by OpenAlex. Topical relevance is NOT human-vetted.', works: Object.fromEntries(works), byTopic, errors };
+if (prev) out.addedMissingOn = new Date().toISOString().slice(0, 10);
+fs.writeFileSync(SNAP, JSON.stringify(out, null, 1));
 console.log(`wrote ${works.size} works; ${errors.length} errors`);

@@ -6,7 +6,7 @@ import fs from 'node:fs';
 const BASE = process.env.BASE_URL ?? 'http://localhost:5173/#';
 const OUT = process.env.E2E_OUT ?? 'e2e-output';
 fs.mkdirSync(OUT, { recursive: true });
-const exe = ['C:/Program Files/Google/Chrome/Application/chrome.exe', 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'].find((p) => fs.existsSync(p));
+const exe = [process.env.CHROME_PATH, '/opt/pw-browsers/chromium-1194/chrome-linux/chrome', 'C:/Program Files/Google/Chrome/Application/chrome.exe', 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'].find((p) => p && fs.existsSync(p));
 
 const results = [];
 const errors = [];
@@ -115,7 +115,16 @@ const filtered = await cards.count();
 check('search filters topics', filtered > 0 && filtered < n0, `${filtered} of ${n0}`);
 await page.getByLabel('Search').fill('zzzzqqqq');
 check('empty state when nothing matches', await visible(page.getByText('No topics match these filters')));
-await page.getByLabel('Search').fill('');
+await page.getByRole('button', { name: 'Clear filters' }).first().click();
+await cards.first().waitFor({ timeout: 5000 }).catch(() => {});
+await page.getByLabel('World region').selectOption('latam');
+await cards.first().waitFor({ timeout: 5000 }).catch(() => {});
+await page.waitForTimeout(400);
+const latamCards = await cards.count();
+check('world region filter lists Latin American topics', latamCards >= 8, `${latamCards} cards ${page.url()}`);
+await page.getByLabel('World region').selectOption('');
+await cards.first().waitFor({ timeout: 5000 }).catch(() => {});
+await page.waitForTimeout(400);
 
 // ---------- 5. Topic detail ----------
 await page.locator('article h2 a').first().click();
@@ -125,6 +134,8 @@ for (const [tab, marker] of [['Evidence', /Literature candidates/], ['Past these
   await page.getByRole('tab', { name: tab }).click();
   check(`tab "${tab}" renders`, await visible(page.getByText(marker).first()));
 }
+// The first ranked card may be a topic added after the last evidence snapshot, so check the evidence tabs on one with snapshot data.
+await go('/topics/municipal-integration-catalonia');
 await page.getByRole('tab', { name: 'Evidence' }).click();
 check('literature carries verified-metadata badge and DOI/links', await visible(page.getByText('Verified metadata').first()) && await page.locator('a:has-text("Open DOI"), a:has-text("Open record")').count() > 0);
 await page.getByRole('tab', { name: 'Past theses' }).click();

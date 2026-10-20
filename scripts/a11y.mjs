@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import { createRequire } from 'node:module';
 const axePath = createRequire(import.meta.url).resolve('axe-core/axe.min.js');
 const BASE = process.env.BASE_URL ?? 'http://localhost:5173/#';
-const exe = ['C:/Program Files/Google/Chrome/Application/chrome.exe', 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'].find((p) => fs.existsSync(p));
+const exe = [process.env.CHROME_PATH, '/opt/pw-browsers/chromium-1194/chrome-linux/chrome', 'C:/Program Files/Google/Chrome/Application/chrome.exe', 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'].find((p) => p && fs.existsSync(p));
 const routes = ['/', '/test', '/explore', '/topics', '/topics/municipal-integration-catalonia', '/topics/municipal-integration-catalonia?tab=evidence', '/topics/municipal-integration-catalonia?tab=feasibility', '/topics/municipal-integration-catalonia?tab=lab', '/topics/municipal-integration-catalonia?tab=precedents', '/map', '/careers?role=me-analyst', '/dashboard', '/sources', '/about', '/profile'];
 const browser = await chromium.launch({ executablePath: exe, headless: true });
 let total = 0;

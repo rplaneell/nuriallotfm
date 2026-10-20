@@ -1,5 +1,5 @@
 import type { Answers, QOption, Question, Weights } from '@/types';
-import { APPROACHES, ENVIRONMENTS, METHODS, THEMES } from './taxonomy';
+import { APPROACHES, DOC_LANGS, ENVIRONMENTS, METHODS, REGIONS, THEMES } from './taxonomy';
 
 /**
  * Weight keys:
@@ -30,6 +30,12 @@ export const SCENARIOS: { id: string; text: string; w: Weights }[] = [
   { id: 'sc-opinion', text: 'Public opinion on migration changes, but government responses differ between regions.', w: w({ 't.opinion': 1, 't.local': 0.4, 't.governance': 0.4 }) },
   { id: 'sc-causal', text: 'A migration programme looks successful, but the available evidence cannot show it caused the results.', w: w({ 't.evaluation': 0.9, 'mi.quant': 0.4, 'mi.evaluation': 0.6, 'a.evaluate': 0.4 }) },
   { id: 'sc-coord', text: 'Public institutions struggle to coordinate responsibilities across national, regional and local levels.', w: w({ 't.capacity': 1, 't.governance': 0.8, 't.local': 0.4 }) },
+  { id: 'sc-bloc', text: 'A regional bloc promises free movement on paper, but people still meet barriers at the border and in the labour market.', w: w({ 't.regionalism': 1, 't.implementation': 0.6, 't.globalgov': 0.3, 's.intl': 0.6 }) },
+  { id: 'sc-host', text: 'A country that hosts many refugees has little funding and little legal room to let them work.', w: w({ 't.displacement': 1, 't.development': 0.6, 't.asylum': 0.4, 's.intl': 0.6 }) },
+  { id: 'sc-origin', text: 'A country of origin tries to keep ties with its emigrants and to channel their money into development.', w: w({ 't.diaspora': 1, 't.development': 0.6, 't.labour': 0.3, 's.intl': 0.6 }) },
+  { id: 'sc-extern', text: 'A destination state funds a neighbouring country to reduce departures, with little public oversight of the results.', w: w({ 't.externalisation': 1, 't.globalgov': 0.3, 't.border': 0.5, 'a.conflict': 0.3, 's.intl': 0.6 }) },
+  { id: 'sc-global', text: 'Governments sign a global compact on migration, but nobody can say what changed in national law because of it.', w: w({ 't.globalgov': 1, 't.evaluation': 0.4, 'a.diffusion': 0.5, 's.intl': 0.7 }) },
+  { id: 'sc-tech', text: 'Border and asylum authorities adopt biometric databases and automated tools faster than rules to supervise them.', w: w({ 't.digital': 1, 't.border': 0.4, 't.discretion': 0.4, 'mi.content': 0.2 }) },
   { id: 'sc-unint', text: 'A policy meant to protect vulnerable people produces unintended consequences.', w: w({ 't.inequality': 0.8, 't.gender': 0.3, 't.discretion': 0.3, 'a.inequalities': 0.5 }) },
 ];
 
@@ -142,6 +148,14 @@ export const QUESTIONS: Question[] = [
     ],
   },
   {
+    id: 'q2-pair4', stage: 2, kind: 'pair',
+    prompt: 'A last pair, this time beyond Europe.',
+    options: [
+      opt('p4a', 'How countries with limited resources host large refugee populations', w({ 't.displacement': 1, 't.development': 0.5, 's.intl': 0.5 })),
+      opt('p4b', 'How wealthy destination states choose whom to admit and on what terms', w({ 't.labour': 0.8, 't.border': 0.4, 't.citizenship': 0.3, 's.comparative': 0.3 })),
+    ],
+  },
+  {
     id: 'q2-rank', stage: 2, kind: 'rank',
     prompt: 'Rank the subjects you chose, from the one you would most like to research.',
     help: 'Use the up and down buttons. This is built from your own picks.',
@@ -163,6 +177,7 @@ export const QUESTIONS: Question[] = [
       opt('o-conflict', '“This thesis analyses the conflict between institutions over…”', w({ 'a.conflict': 1, 't.governance': 0.3 })),
       opt('o-rec', '“This thesis proposes practical recommendations for…”', w({ 'a.recommend': 1, 'b.applied': 0.6 })),
       opt('o-tool', '“This thesis develops a tool to help officials decide…”', w({ 'a.tools': 1, 'mi.opendata': 0.3, 'b.applied': 0.5 })),
+      opt('o-diffuse', '“This thesis traces how this policy idea travelled from one country or institution to another…”', w({ 'a.diffusion': 1, 's.comparative': 0.4 })),
       opt('o-effects', '“This thesis investigates how the policy affects different groups…”', w({ 'a.effects': 1, 't.inequality': 0.3 })),
     ],
   },
@@ -270,6 +285,18 @@ export const QUESTIONS: Question[] = [
     ],
   },
   {
+    id: 'q6-region', stage: 6, kind: 'multi', maxSelect: 3,
+    prompt: 'Which parts of the world would you like your topic to touch? Choose up to three.',
+    help: 'Many topics link Spain or the EU with a partner region. Choosing a region does not exclude Spain or Catalonia, it only adds weight to topics that involve it.',
+    options: REGIONS.map((r) => opt(r.id, r.label, w({ [`r.${r.id}`]: 1 }))),
+  },
+  {
+    id: 'q6-lang', stage: 6, kind: 'multi',
+    prompt: 'Besides English, which languages could you read official documents and reports in?',
+    help: 'This is about reading primary sources, not fluency in interviews. A language you do not tick lowers matching topics only slightly, because many documents have English versions.',
+    options: DOC_LANGS.map((l) => opt(l.id, l.label, w({ [`l.${l.id}`]: 1 }))),
+  },
+  {
     id: 'q6-design', stage: 6, kind: 'single',
     prompt: 'A single case or a comparison?',
     help: 'One case: depth, less generalisable. Comparison: patterns, more work per case.',
@@ -324,6 +351,8 @@ export const DIM_LABELS: Record<string, string> = {
   ...Object.fromEntries(METHODS.flatMap((m) => [[`mi.${m.id}`, `${m.label} (interest)`], [`mc.${m.id}`, `${m.label} (existing skill)`], [`mw.${m.id}`, `${m.label} (want to learn)`]])),
   ...Object.fromEntries(ENVIRONMENTS.map((e) => [`c.${e.id}`, e.label])),
   's.local': 'Local scope', 's.regional': 'Regional scope', 's.national': 'National scope', 's.eu': 'European scope', 's.intl': 'International scope',
+  ...Object.fromEntries(REGIONS.map((r) => [`r.${r.id}`, r.label])),
+  ...Object.fromEntries(DOC_LANGS.map((l) => [`l.${l.id}`, `${l.label} documents`])),
   's.single': 'Single-case design', 's.comparative': 'Comparative design',
   's.exploratory': 'Exploratory questions', 's.explanatory': 'Explanatory questions', 's.evaluative': 'Evaluative questions',
 };
