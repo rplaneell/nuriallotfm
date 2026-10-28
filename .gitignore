@@ -5,3 +5,7 @@ e2e-output
 *.log
 
 .vercel
+
+# Secrets: API keys live in .env and must never reach GitHub
+.env.local
+.env.*.local
