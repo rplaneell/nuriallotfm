@@ -1,0 +1,16 @@
+{
+  "extraKnownMarketplaces": {
+    "myskills": {
+      "source": {
+        "source": "github",
+        "repo": "rplaneell/myskills"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "core@myskills": true,
+    "superpowers@myskills": true,
+    "task-observer@myskills": true,
+    "frontend@myskills": true
+  }
+}
